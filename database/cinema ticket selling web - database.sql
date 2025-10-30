@@ -4,13 +4,13 @@ create table role (
 	constraint pk_role primary key (role_id)
 );
 create table usr (
-	user_index int not null auto_increment,
+	usr_index int not null auto_increment,
 	usrname varchar(50),
 	passwd varchar(100),
 	name varchar(100),
 	email varchar(100),
 	role_id char(2),
-	constraint pk_user primary key (user_index),
+	constraint pk_user primary key (usr_index),
 	constraint fk_user_to_role foreign key (role_id) references role(role_id)
 );
 create table type (
