@@ -1,0 +1,287 @@
+/* ... Layout chung giữ nguyên ... */
+.success-page {
+    background-color: var(--primary-bg);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.success-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+.main-success-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TICKET BOX CONTAINER --- */
+.ticket-confirmation-box {
+    width: 100%;
+    /* Không giới hạn max-width để giống ảnh mẫu rộng rãi */
+    border: 1px solid #4a1d6e;
+    /* Viền tím */
+    background: rgba(15, 5, 24, 0.95);
+    /* Nền rất tối */
+    border-radius: 8px;
+    padding: 40px 50px;
+    /* Padding rộng hơn */
+    margin-top: 10px;
+}
+
+/* Header */
+.box-header {
+    margin-bottom: 50px;
+}
+
+.success-title {
+    font-size: 32px;
+    color: var(--accent-yellow);
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.success-subtitle {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* GRID LAYOUT */
+.info-grid-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    /* Cột trái rộng hơn (chiếm 60%) */
+    gap: 80px;
+    /* Khoảng cách giữa 2 cột lớn */
+    margin-bottom: 50px;
+}
+
+.column-title {
+    font-size: 20px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ROWS */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.info-row.start-align {
+    align-items: flex-start;
+}
+
+/* Để căn chỉnh khi nội dung dài */
+
+.label {
+    min-width: 140px;
+    color: #94a3b8;
+    /* Xám nhạt */
+}
+
+.value {
+    color: #e2e8f0;
+    font-weight: 500;
+    text-align: left;
+    flex: 1;
+}
+
+.highlight-white {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Chi tiết loại vé / Đồ ăn */
+.value-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.sub-item-row {
+    color: white;
+    font-size: 15px;
+}
+
+.sub-total-text {
+    font-weight: 700;
+    color: white;
+    margin-top: 2px;
+}
+
+/* Divider */
+.divider-dashed {
+    height: 1px;
+    border-bottom: 1px dashed #4a4a5e;
+    margin: 25px 0;
+    width: 100%;
+}
+
+/* Total Price */
+.total-row-large {
+    margin-top: 10px;
+    align-items: center;
+}
+
+.total-price-large {
+    font-size: 24px;
+    color: white;
+    font-weight: 800;
+}
+
+/* --- QR CODE LỚN & CĂN CHỈNH --- */
+.qr-container-clean {
+    margin-top: 40px;
+    /* Cách badge thanh toán một đoạn */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Căn giữa trong cột phải */
+    width: 100%;
+    /* Không background, không border */
+}
+
+.qr-container-clean img {
+    width: 180px;
+    /* To hơn (trước là 140px) */
+    height: 180px;
+    border-radius: 8px;
+    border: 5px solid white;
+    /* Viền trắng dày quanh mã QR cho nổi trên nền tối */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Bóng đổ nhẹ */
+}
+
+.qr-caption {
+    margin-top: 15px;
+    color: #64748b;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* --- RIGHT COLUMN & BADGE --- */
+.payment-status-badge {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(252, 252, 101, 0.1);
+    border-radius: 6px;
+    width: fit-content;
+    color: var(--accent-yellow);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* --- FOOTER BUTTONS --- */
+.box-footer-actions.centered {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa toàn bộ cụm nút */
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Đường kẻ mờ ngăn cách phần chi tiết và nút */
+    width: 100%;
+}
+
+.btn-download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 265px;
+    height: 48px;
+    background: #FCFC65;
+    border-radius: 4px;
+    border: none;
+    color: #010108;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(252, 252, 101, 0.4);
+}
+
+.btn-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 265px;
+    height: 48px;
+    background: transparent;
+    border: 1px solid #FCFC65;
+    border-radius: 4px;
+    color: #FCFC65;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-share:hover {
+    background: rgba(252, 252, 101, 0.1);
+}
+
+/* Thank you note */
+.thank-you-note {
+    font-size: 14px;
+    color: #38bdf8;
+    /* Cyan Blue đúng mẫu */
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .info-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .qr-section-large {
+        width: 100%;
+        align-items: center;
+    }
+
+    /* Mobile luôn căn giữa */
+    .box-footer-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-download,
+    .btn-share {
+        width: 100%;
+    }
+}

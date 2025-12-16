@@ -1,0 +1,31 @@
+/* src/styles/variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-bg: #15061E;
+    /* Nền tím than đậm */
+    --card-bg: #1e1029;
+    /* Nền card (sáng hơn nền chính xíu) */
+
+    --primary-btn: #451662;
+    /* Màu nút bấm tím */
+    --primary-btn-hover: #5a1e80;
+
+    --accent-yellow: #FFD660;
+    /* Màu vàng (Viền, Text highlight) */
+    --border-purple: #38134E;
+    /* Viền tím tối */
+
+    --text-primary: #ffffff;
+    --text-secondary: #a78bfa;
+    /* Tím nhạt cho text phụ */
+    --text-gray: #cbd5e1;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: "Be Vietnam Pro", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}

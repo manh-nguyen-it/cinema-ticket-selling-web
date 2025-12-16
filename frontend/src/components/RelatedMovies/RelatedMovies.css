@@ -1,0 +1,180 @@
+/* --- Container Chính --- */
+.related-movies-section {
+    margin-top: 60px;
+    /* Cách phần nội dung bên trên */
+    padding-top: 30px;
+    border-top: 1px solid #25252C;
+    /* Đường kẻ ngăn cách mờ */
+}
+
+/* Tiêu đề */
+.related-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    /* Chữ in hoa giống mẫu */
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Grid Layout 5 cột */
+.related-grid {
+    display: grid;
+    /* Tự động chia 5 cột đều nhau trên màn hình lớn */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    /* Khoảng cách giữa các card */
+}
+
+/* --- Movie Card Style --- */
+.related-movie-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.related-movie-card:hover {
+    transform: translateY(-5px);
+    /* Hover thì nhích lên nhẹ */
+}
+
+/* Poster Image */
+.movie-poster-wrapper {
+    position: relative;
+    width: 100%;
+    /* Tỉ lệ khung hình dọc chuẩn poster phim (khoảng 2:3) */
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.movie-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng zoom ảnh khi hover vào card */
+.related-movie-card:hover .movie-poster-img {
+    transform: scale(1.05);
+}
+
+/* Lớp phủ mờ khi hover (tùy chọn) */
+.poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+}
+
+.related-movie-card:hover .poster-overlay {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Score Row (Điểm số) */
+.score-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.score-icon {
+    color: #FF5722;
+    /* Màu đỏ cam đậm giống icon cà chua */
+    font-size: 14px;
+}
+
+.score-text {
+    color: #e2e8f0;
+    /* Màu chữ sáng nhẹ */
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Movie Title */
+.movie-title-text {
+    font-size: 15px;
+    color: white;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.4;
+
+    /* Xử lý nếu tên phim quá dài -> hiện dấu "..." */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Giới hạn tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Animation Fade In nhẹ */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive --- */
+
+/* Tablet: 3 cột */
+@media (max-width: 1024px) {
+    .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile: Chuyển sang dạng trượt ngang (Horizontal Scroll) */
+@media (max-width: 768px) {
+    .related-heading {
+        font-size: 16px;
+    }
+
+    .related-grid {
+        display: flex;
+        /* Chuyển sang flex để trượt */
+        overflow-x: auto;
+        /* Cho phép trượt ngang */
+        gap: 15px;
+        padding-bottom: 15px;
+        /* Chừa chỗ cho thanh scrollbar nếu có */
+        /* Ẩn thanh scrollbar trên một số trình duyệt */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .related-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .related-movie-card {
+        min-width: 140px;
+        /* Chiều rộng tối thiểu cho mỗi card trên mobile */
+        flex-shrink: 0;
+        /* Không cho phép co lại */
+    }
+
+    .movie-title-text {
+        font-size: 14px;
+    }
+}

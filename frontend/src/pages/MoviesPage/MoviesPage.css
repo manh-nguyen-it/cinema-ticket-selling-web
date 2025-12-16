@@ -1,0 +1,110 @@
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Header Tabs */
+.tabs-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    justify-content: space-between;
+    /* Để giống header trong ảnh */
+    align-items: center;
+}
+
+.tabs-list {
+    display: flex;
+    gap: 40px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    /* Chữ to hơn giống thiết kế */
+    font-weight: bold;
+    color: var(--text-secondary);
+    padding-bottom: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    text-transform: capitalize;
+    /* Chữ hoa chữ cái đầu */
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--text-primary);
+}
+
+/* Đường gạch chân gradient giống ảnh */
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--tab-active);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+/* Grid Layout */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    row-gap: 50px;
+    /* Khoảng cách hàng lớn hơn */
+}
+
+/* Nút Xem Thêm */
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.load-more-btn {
+    padding: 10px 40px;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.load-more-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .movie-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .tab-btn {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,100 @@
+/* Container tổng */
+.progress-bar-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+/* Container chứa các bước (để dùng Flexbox dàn đều) */
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    /* Nằm trên đường kẻ */
+}
+
+/* --- ĐƯỜNG KẺ (LINES) --- */
+.progress-line-bg,
+.progress-line-active {
+    position: absolute;
+    bottom: 7px;
+    /* Căn chỉnh vị trí này sao cho cắt ngang giữa chấm tròn (cao 16px -> bottom ~7-8px) */
+    left: 0;
+    height: 2px;
+    z-index: 1;
+}
+
+/* Đường nền xám */
+.progress-line-bg {
+    width: 100%;
+    background-color: #334155;
+}
+
+/* Đường Active vàng */
+.progress-line-active {
+    background-color: var(--accent-yellow);
+    /* Màu vàng */
+    transition: width 0.4s ease-in-out;
+    /* Hiệu ứng chạy mượt mà */
+}
+
+/* --- STEP ITEM --- */
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 100px;
+    /* Đảm bảo text không bị gãy dòng quá nhiều */
+}
+
+/* Chữ */
+.step-label {
+    font-size: 14px;
+    color: #94a3b8;
+    /* Xám nhạt */
+    font-weight: 500;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+/* Chấm tròn */
+.step-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #334155;
+    /* Mặc định xám */
+    /* Border trùng màu nền để tạo khoảng hở cắt đường kẻ (giống ảnh mẫu) */
+    border: 4px solid var(--primary-bg);
+    box-sizing: content-box;
+    transition: all 0.3s;
+}
+
+/* --- TRẠNG THÁI --- */
+
+/* Đã hoàn thành hoặc Đang chọn (Completed/Active) */
+.step-item.completed .step-label {
+    color: white;
+    /* Chữ trắng sáng */
+}
+
+.step-item.completed .step-dot {
+    background-color: var(--accent-yellow);
+    /* Chấm vàng */
+    box-shadow: 0 0 10px rgba(255, 214, 96, 0.4);
+    /* Glow nhẹ */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .step-label {
+        font-size: 11px;
+    }
+
+    .step-item {
+        min-width: auto;
+    }
+}

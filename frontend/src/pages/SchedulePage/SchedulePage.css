@@ -1,0 +1,110 @@
+.schedule-page {
+    background-color: #0f172a;
+    /* Nền tối toàn trang */
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: white;
+}
+
+.schedule-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 32px;
+    margin: 0;
+}
+
+.location-selector {
+    display: flex;
+    align-items: center;
+    background-color: #4c1d95;
+    /* Tím đậm background nút location */
+    padding: 10px 20px;
+    border-radius: 8px;
+    gap: 10px;
+}
+
+.cinema-select {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.cinema-select option {
+    background-color: #4c1d95;
+}
+
+/* Date Selector */
+.date-selector {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #334155;
+
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    /* overflow-y: hidden; */
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px 5px;
+    color: #94a3b8;
+    position: relative;
+    white-space: nowrap;
+}
+
+.date-item:hover {
+    color: white;
+}
+
+.date-item.active {
+    color: white;
+    font-weight: bold;
+}
+
+.date-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    /* Căn chỉnh vạch kẻ dưới trùng border cha */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #a78bfa;
+    /* Màu tím highlight */
+}
+
+.day-number {
+    font-size: 20px;
+}
+
+.weekday {
+    font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .schedule-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}

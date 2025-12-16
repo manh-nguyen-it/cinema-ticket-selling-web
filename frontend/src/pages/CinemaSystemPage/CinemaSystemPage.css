@@ -1,0 +1,355 @@
+/* Layout chung */
+.cinema-system-page {
+    background-color: var(--primary-bg);
+    /* Hoặc #0f0518 */
+    color: white;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.cinema-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-header-title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+/* --- TITLE WRAPPER (Stars + Text) --- */
+.section-title-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    /* Tăng khoảng cách icon và chữ */
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.star-icon {
+    color: #FFD660;
+    font-size: 40px;
+    /* Tăng size ngôi sao cho cân xứng với chữ */
+    transform: rotate(-15deg);
+}
+
+.fancy-title {
+    /* FONT SIZE RESPONSIVE:
+     - Min: 40px (Mobile)
+     - Max: 96px (Desktop - Chuẩn Figma)
+     - Thích ứng: 6vw (theo chiều rộng màn hình)
+  */
+    font-size: clamp(40px, 6vw, 96px);
+
+    font-family: 'Fredoka One', cursive, sans-serif;
+    /* Font tròn đậm */
+    color: #8A66C3;
+    /* Màu tím nhạt bên trong */
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    /* Tạo viền chữ đậm giống style comic/sticker */
+    -webkit-text-stroke: 2px #3C1254;
+    text-shadow:
+        4px 4px 0px #3C1254,
+        /* Bóng cứng màu tối */
+        0 0 20px rgba(138, 102, 195, 0.5);
+    /* Glow nhẹ */
+}
+
+/* --- TICKET SHAPE (CÁI KHUNG MÀU TÍM) --- */
+.ticket-container {
+    position: relative;
+    background-color: rgba(102, 51, 153, 0.612);
+    /* Viền trắng của khung lớn */
+    border: 5px solid rgba(102, 51, 153, 1);
+
+    /* Tăng padding để nội dung không bị lẹm vào lỗ khuyết to hơn */
+    padding: 10px 0px;
+    margin-bottom: 40px;
+    z-index: 1;
+}
+
+/* TẠO HÌNH BÁN NGUYỆT 2 BÊN (CUTOUTS) */
+.ticket-cutout {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* 1. TĂNG KÍCH THƯỚC (To hơn) */
+    width: 320px;
+    height: 320px;
+
+    /* 2. MÀU NỀN TRÙNG MÀU WEB (Để tạo cảm giác trong suốt) */
+    background-color: var(--primary-bg);
+    /* Hoặc mã màu nền: #0f0518 */
+
+    /* 3. LOẠI BỎ VIỀN TRẮNG CỦA HÌNH TRÒN */
+    border: none;
+
+    /* Bo tròn tuyệt đối */
+    border-radius: 50%;
+
+    /* Đè lên viền của khung tím */
+    z-index: 2;
+}
+
+/* Tinh chỉnh vị trí để khớp với viền */
+.ticket-cutout.left {
+    left: -180px;
+}
+
+.ticket-cutout.right {
+    right: -180px;
+}
+
+/* --- NỘI DUNG BÊN TRONG --- */
+.ticket-content {
+    padding: 20px 0px;
+}
+
+.ticket-inner-lines {
+    /* 2 đường kẻ vàng bên trong */
+    border-top: 12px solid #FFE1B3;
+    border-bottom: 12px solid #FFE1B3;
+    padding: 40px 0px;
+    min-height: 200px;
+    width: 100%;
+    /* Chiều cao tối thiểu để đẹp */
+}
+
+/* --- GRID DANH SÁCH --- */
+.grid-list {
+    display: grid;
+    gap: 20px 10px;
+    padding: 0 180px;
+}
+
+.cities-grid {
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 cột như ảnh */
+}
+
+.theaters-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cột cho rạp */
+}
+
+/* Grid Item */
+.grid-item {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.grid-item:hover {
+    color: #FFD660;
+}
+
+.grid-item.active {
+    color: #FFD660;
+    /* Màu vàng khi được chọn */
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 214, 96, 0.4);
+}
+
+/* --- THEATER DETAIL SECTION --- */
+.theater-name-heading {
+    color: #FFD660;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.theater-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.theater-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.theater-info-map {
+    display: flex;
+    background-color: #1a1a2e;
+    /* Nền tối cho phần info */
+    padding: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.info-text {
+    flex: 1;
+    padding-right: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.info-text p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #e2e8f0;
+}
+
+.icon-gold {
+    color: #FFD660;
+    margin-top: 3px;
+}
+
+.map-view {
+    width: 300px;
+    height: 100px;
+}
+
+.map-view img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Utils */
+.mt-large {
+    margin-top: 40px;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .theaters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .theater-info-map {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .map-view {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-list {
+        padding: 0 30px;
+    }
+}
+
+.empty-state-box {
+    background-color: rgba(102, 51, 153, 0.2);
+    /* Tím rất nhạt trong suốt */
+
+    /* Viền nét đứt màu vàng -> Ý tưởng "Khu vực đang thi công" */
+    border: 3px dashed #FFD660;
+    border-radius: 20px;
+
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon trang trí */
+.empty-icon-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.city-icon {
+    font-size: 80px;
+    color: #8A66C3;
+    /* Màu tím nhạt */
+    opacity: 0.5;
+}
+
+.tool-badge {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background-color: #FFD660;
+    color: #3C1254;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Animation lắc lư nhẹ */
+    animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.empty-title {
+    font-family: 'Fredoka One', cursive, sans-serif;
+    font-size: 32px;
+    color: #FFD660;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 10px rgba(255, 214, 96, 0.3);
+}
+
+.empty-desc {
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0;
+}
