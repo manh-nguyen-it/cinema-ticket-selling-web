@@ -1,0 +1,290 @@
+/* Container chính (dùng lại style cũ) */
+.payment-page {
+    background-color: var(--primary-bg);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.payment-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+.main-payment-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper chia 2 cột: Form & Summary */
+.payment-content-wrapper {
+    display: flex;
+    gap: 60px;
+    /* Khoảng cách giữa 2 cột */
+    margin-top: 20px;
+}
+
+/* --- PAYMENT FORM SECTION (CỘT GIỮA) --- */
+.payment-form-section {
+    flex: 1.5;
+    /* Chiếm phần lớn hơn */
+    border: 1px solid white;
+    /* VIỀN TRẮNG THEO ẢNH */
+    border-radius: 4px;
+    padding: 30px;
+    background-color: transparent;
+    /* Nền trong suốt để lộ background tối */
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Radio List */
+.payment-methods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.method-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    /* Viền trong suốt mặc định */
+    transition: all 0.2s;
+}
+
+.method-option:hover {
+    background: rgba(255, 255, 255, 0.05);
+    /* Hover nhẹ */
+}
+
+/* Radio Button Input */
+.method-option input[type="radio"] {
+    accent-color: var(--accent-yellow);
+    transform: scale(1.2);
+    margin: 0;
+}
+
+.radio-label {
+    color: #94a3b8;
+    /* Màu xám mặc định */
+    font-size: 15px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+/* --- [QUAN TRỌNG] TRẠNG THÁI ĐƯỢC CHỌN (SELECTED) --- */
+.method-option.selected-method {
+    background: rgba(252, 252, 101, 0.05);
+    /* Nền vàng rất nhạt */
+    border-color: rgba(252, 252, 101, 0.3);
+    /* Viền vàng mờ */
+}
+
+.method-option.selected-method .radio-label {
+    color: var(--accent-yellow);
+    /* Chữ Vàng */
+    font-weight: 700;
+    /* In đậm */
+}
+
+/* --- LOGIC CHO CÁC PHƯƠNG THỨC KHÁC (WALLET INFO) --- */
+.wallet-info-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px dashed #64748b;
+    color: white;
+}
+
+.wallet-info-box p {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+}
+
+.wallet-info-box .sub-text {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* Hiệu ứng hiện dần */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Inputs */
+.card-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.icon-card {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0.5;
+}
+
+/* Input Styles */
+.payment-form-section input[type="text"],
+.payment-form-section input[type="password"] {
+    width: 100%;
+    background: #0f0518;
+    /* Nền input tối */
+    border: 1px solid #334155;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.payment-form-section input:focus {
+    border-color: var(--accent-yellow);
+}
+
+.row-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.row-inputs .input-group {
+    flex: 1;
+}
+
+
+/* --- ORDER SUMMARY SECTION (CỘT PHẢI) --- */
+.order-summary-section {
+    flex: 1;
+    /* Chiếm phần nhỏ hơn */
+    padding-top: 10px;
+}
+
+.summary-title {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #cbd5e1;
+}
+
+.summary-group {
+    margin-bottom: 15px;
+}
+
+.summary-header {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+.total-sub {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.divider-line {
+    height: 1px;
+    background: #334155;
+    margin: 20px 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.total-highlight {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-pay-now {
+    width: 100%;
+    background: var(--accent-yellow);
+    color: #010108;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-pay-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(252, 252, 101, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .payment-content-wrapper {
+        flex-direction: column;
+    }
+
+    .payment-form-section {
+        border: none;
+        padding: 0;
+    }
+
+    /* Mobile bỏ viền cho thoáng */
+}

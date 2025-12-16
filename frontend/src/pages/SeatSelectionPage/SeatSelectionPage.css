@@ -1,0 +1,621 @@
+/* --- LAYOUT CHÍNH --- */
+.seat-page {
+    background-color: var(--primary-bg);
+    /* #15061E */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.seat-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+/* --- SIDEBAR (Updated) --- */
+.sidebar-info {
+    width: 320px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-poster {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-poster img {
+    width: 100%;
+    display: block;
+}
+
+.poster-play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.sidebar-poster:hover .poster-play-overlay {
+    opacity: 1;
+}
+
+.sidebar-session-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-purple);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.label-session {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.session-time-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.session-date-badge {
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+}
+
+.session-hour-badge {
+    background-color: var(--accent-yellow);
+    /* Màu vàng */
+    color: #15061E;
+    /* Chữ màu nền đậm */
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(255, 214, 96, 0.2);
+}
+
+.play-icon {
+    font-size: 30px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.sidebar-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.sidebar-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.pg-badge {
+    border: 1px solid #cbd5e1;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.rating-star {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar-cinema-info {
+    margin-bottom: 30px;
+}
+
+.cinema-name-sidebar {
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    color: white;
+}
+
+.cinema-address-sidebar {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: auto;
+    text-align: left;
+}
+
+.btn-back:hover {
+    color: var(--accent-yellow);
+}
+
+
+/* --- MAIN AREA --- */
+.main-seat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    /* Độ rộng vừa phải để text không bị dính */
+    margin: 0 auto 50px;
+    /* Căn giữa và cách phần màn hình 50px */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* Căn đáy để các chấm tròn thẳng hàng */
+}
+
+/* Đường kẻ ngang nối các chấm */
+.progress-line-bg {
+    position: absolute;
+    bottom: 7px;
+    /* Căn chỉnh để đường kẻ nằm giữa chấm tròn (cao 14px) */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #334155;
+    /* Màu xám tối */
+    z-index: 0;
+    /* Nằm sau các chấm */
+}
+
+/* Một bước (bao gồm text và chấm) */
+.step-item {
+    position: relative;
+    z-index: 1;
+    /* Nằm đè lên đường kẻ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* Khoảng cách giữa chữ và chấm */
+    min-width: 80px;
+    /* Đảm bảo đủ chỗ cho text */
+}
+
+/* Chữ hiển thị tên bước */
+.step-label {
+    font-size: 14px;
+    color: #94a3b8;
+    /* Màu xám nhạt (trạng thái chưa chọn) */
+    font-weight: 500;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+/* Chấm tròn */
+.step-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #334155;
+    /* Màu xám tối (trạng thái chưa chọn) */
+    border: 1px solid #353541;
+    /* Viền màu nền để cắt đường kẻ ngang tạo khoảng hở đẹp mắt */
+    box-sizing: content-box;
+    /* Để border không ăn vào kích thước chấm */
+    transition: all 0.3s;
+}
+
+/* --- TRẠNG THÁI ACTIVE (Đang chọn) --- */
+.step-item.active .step-label {
+    color: white;
+    /* Chữ sáng lên */
+    font-weight: 700;
+}
+
+.step-item.active .step-dot {
+    background-color: #FCFC65;
+    /* Chấm màu vàng */
+    /* box-shadow: 0 0 15px rgba(255, 214, 96, 0.5); */
+    /* Hiệu ứng phát sáng nhẹ */
+    transform: scale(1.1);
+    /* Phóng to nhẹ */
+}
+
+
+/* --- MÀN HÌNH 3D & ÁNH SÁNG --- */
+.screen-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Xếp dọc: Màn hình trên, Ánh sáng dưới */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    perspective: 1000px;
+    /* Quan trọng: Tạo chiều sâu 3D cho toàn bộ khối */
+    position: relative;
+}
+
+.screen-container {
+    /* Kích thước từ Figma */
+    width: 696px;
+    height: 189px;
+    background: #454555;
+    border-radius: 2px;
+
+    /* Biến hình */
+    transform: rotateX(-60deg) scale(1);
+
+    /* Hiệu ứng đẹp */
+    /* box-shadow: 0 25px 50px rgba(255, 255, 255, 0.2); */
+    /* Ánh sáng hắt xuống */
+    /* background: linear-gradient(to bottom, #454555, #2d2d3a); */
+    /* Gradient nhẹ cho đỡ bệt màu */
+
+    /* Căn chữ "Màn hình" vào giữa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.screen-text {
+    font-size: 16px;
+    color: #94a3b8;
+    font-weight: 500;
+    /* Xoay ngược lại text một chút để dễ đọc hơn khi màn hình nghiêng */
+    transform: rotateX(30deg);
+}
+
+/* --- LỚP ÁNH SÁNG (LIGHT) TỪ FIGMA --- */
+.screen-light {
+    /* Kích thước từ Figma */
+    width: 724px;
+    height: 102px;
+
+    /* Căn chỉnh vị trí */
+    position: relative;
+    z-index: 1;
+
+    /* Chuyển đổi Gradient Figma sang CSS chuẩn */
+    /* Logic: Ánh sáng vàng toả ra từ giữa trên, mờ dần xuống dưới */
+    background:
+        /* Lớp 1: Ánh sáng vàng chủ đạo (Yellow Glow) */
+        radial-gradient(50% 100% at 50% 0%,
+            rgba(252, 252, 101, 0.25) 0%,
+            /* Tăng opacity lên xíu cho rõ trên nền tối */
+            rgba(14, 14, 17, 0) 100%),
+        /* Lớp 2: Ánh sáng trắng mờ hỗ trợ (Linear Fade) */
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(59, 59, 62, 0) 100%);
+
+    /* Tạo hình thang cho luồng sáng (Light Beam) để khớp phối cảnh */
+    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0% 100%);
+
+    /* Làm nhòe nhẹ để ánh sáng trông tự nhiên hơn */
+    filter: blur(5px);
+
+    /* Tinh chỉnh vị trí 3D */
+    transform: translateY(-20px);
+    /* Kéo lên khớp với chân màn hình */
+    opacity: 0.8;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .screen-container {
+        width: 90%;
+        height: 120px;
+    }
+
+    .screen-light {
+        width: 100%;
+    }
+}
+
+/* --- SƠ ĐỒ GHẾ --- */
+.seat-map {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.row-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #94a3b8;
+    width: 20px;
+    text-align: center;
+}
+
+.row-seats {
+    display: flex;
+    gap: 8px;
+}
+
+.seat-gap {
+    width: 30px;
+}
+
+/* Wrapper để xử lý Tooltip */
+.seat-wrapper {
+    position: relative;
+}
+
+/* Hình dáng ghế */
+.seat-wrapper-svg {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hiệu ứng Hover: Phóng to và đổi màu fill */
+.seat-wrapper-svg:hover:not(.booked) {
+    transform: scale(1.15);
+    /* Phóng to nhẹ */
+}
+
+/* Khi hover vào ghế trống, đổi màu SVG sang vàng nhạt */
+.seat-wrapper-svg:hover:not(.booked):not(.selected) path,
+.seat-wrapper-svg:hover:not(.booked):not(.selected) rect {
+    fill: #fde047 !important;
+    /* Vàng nhạt */
+    transition: fill 0.2s;
+}
+
+/* Ghế đã đặt: Không cho click */
+.seat-wrapper-svg.booked {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Hiệu ứng bóng đổ (Glow) khi ghế được Chọn */
+.seat-wrapper-svg.selected svg {
+    filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.6));
+    /* Glow vàng */
+}
+
+/* Tooltip (Giữ nguyên logic cũ nhưng chỉnh lại vị trí chút cho SVG) */
+.seat-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: var(--accent-yellow);
+    border: 1px solid var(--accent-yellow);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    animation: popIn 0.2s;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.armrest.left {
+    left: 2px;
+}
+
+.armrest.right {
+    right: 2px;
+}
+
+/* Hover */
+.seat-item:hover:not(.booked) {
+    transform: scale(1.1);
+    background-color: #fde047;
+}
+
+/* Ghế Đã Đặt */
+.seat-item.booked {
+    background-color: #3f2e4d;
+    /* Tím tối */
+    box-shadow: 0 2px 0 #281a33;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Ghế Đang Chọn */
+.seat-item.selected {
+    background-color: var(--accent-yellow);
+    /* Vàng */
+    box-shadow: 0 0 10px var(--accent-yellow);
+}
+
+/* Tooltip (Cái nhãn đen hiện lên khi chọn) */
+.seat-tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: var(--accent-yellow);
+    border: 1px solid var(--accent-yellow);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    animation: popIn 0.2s;
+    z-index: 10;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+
+/* --- LEGEND --- */
+.seat-legend {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.seat-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.seat-dot.available {
+    background: white;
+}
+
+.seat-dot.booked {
+    background: #3f2e4d;
+}
+
+.seat-dot.selected {
+    background: var(--accent-yellow);
+}
+
+
+/* --- FOOTER PANEL --- */
+.booking-summary-panel {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+    background: #1e1029;
+    border: 1px solid var(--border-purple);
+    border-radius: 12px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label-summary {
+    font-size: 12px;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.seat-list-text {
+    color: var(--accent-yellow);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.total-action {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.total-price-col {
+    text-align: right;
+}
+
+.price-text {
+    font-size: 24px;
+    color: white;
+}
+
+.btn-checkout {
+    background: var(--accent-yellow);
+    color: #15061E;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-checkout:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 214, 96, 0.3);
+}
+
+.btn-checkout:disabled {
+    background: #3f2e4d;
+    color: #64748b;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .step-label {
+        font-size: 12px;
+    }
+
+    /* Giảm cỡ chữ */
+    .progress-container {
+        margin-bottom: 30px;
+    }
+}

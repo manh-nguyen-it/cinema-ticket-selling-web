@@ -1,0 +1,529 @@
+/* --- TỔNG QUAN --- */
+.detail-page {
+    position: relative;
+    background-color: var(--primary-bg);
+    color: white;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.page-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center top;
+    opacity: 0.15;
+    filter: blur(20px);
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, black, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.detail-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- PHẦN 1: TOP SECTION --- */
+.top-section {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.left-column {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.right-column {
+    flex: 1;
+}
+
+/* Poster & Overlay */
+.poster-frame {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.main-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.poster-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+
+.poster-frame:hover .poster-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.poster-frame:hover .main-poster {
+    transform: scale(1.05);
+}
+
+.play-btn-circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    padding-left: 4px;
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s;
+}
+
+.poster-frame:hover .play-btn-circle {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.trailer-text {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Nút Bấm */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-action {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.btn-ticket {
+    background: var(--primary-btn);
+    color: white;
+    border: 1px solid var(--accent-yellow);
+    box-shadow: 0 4px 15px rgba(69, 22, 98, 0.4);
+}
+
+.btn-ticket:hover {
+    background: var(--primary-btn-hover);
+    transform: translateY(-2px);
+}
+
+.btn-favorite {
+    border: 2px solid var(--accent-yellow);
+    color: var(--accent-yellow);
+    background: transparent;
+    text-transform: none;
+}
+
+.btn-favorite:hover {
+    background: rgba(255, 214, 96, 0.1);
+}
+
+.heart-icon {
+
+    fill: none;
+    stroke: var(--accent-yellow);
+    stroke-width: 2;
+    width: 24px;
+    height: 24px;
+}
+
+/* Thông tin phim */
+.movie-title-large {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+}
+
+.section-label {
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.movie-desc {
+    color: #e2e8f0;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.spec-row {
+    margin-bottom: 12px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 8px;
+}
+
+.spec-row strong {
+    color: #94a3b8;
+    display: inline-block;
+    width: 140px;
+}
+
+/* --- PHẦN 2: DIỄN VIÊN --- */
+.cast-section {
+    margin-bottom: 50px;
+}
+
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    border-left: 4px solid #eab308;
+    padding-left: 15px;
+}
+
+.section-header {
+    margin: 0;
+    font-size: 22px;
+}
+
+.view-more-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.cast-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+
+.cast-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.cast-card {
+    min-width: 100px;
+    text-align: center;
+}
+
+.cast-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.cast-card:hover .cast-img {
+    border-color: #eab308;
+}
+
+.cast-name {
+    font-size: 13px;
+    color: #ccc;
+    margin: 0;
+}
+
+/* --- PHẦN 3: ĐÁNH GIÁ (UPDATED) --- */
+.review-stats-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Điểm số */
+.score-box-large {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.score-badge-large {
+    background: var(--accent-yellow);
+    color: black;
+    font-size: 28px;
+    font-weight: 800;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rating-label {
+    font-weight: bold;
+    display: block;
+    font-size: 18px;
+}
+
+.rating-count {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* Biểu đồ thanh (Rating Bars) */
+.rating-distribution {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rating-row {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.rating-row-label {
+    width: 90px;
+    color: white;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.rating-bar-track {
+    flex: 1;
+    height: 8px;
+    background-color: #334155;
+    border-radius: 4px;
+    margin: 0 15px;
+    overflow: hidden;
+}
+
+.rating-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rating-row-value {
+    color: #94a3b8;
+    font-size: 13px;
+    width: 110px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Review List */
+.review-list-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* QUAN TRỌNG: height auto để danh sách dài ra */
+.review-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: auto;
+}
+
+.review-card {
+    background: #240d30;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-score-box {
+    background: #eab308;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.user-name {
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+
+.review-date {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.review-content {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--primary-bg));
+    pointer-events: none;
+}
+
+/* Nút xem thêm */
+.see-more-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #94a3b8;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    user-select: none;
+    transition: color 0.3s;
+}
+
+.see-more-reviews:hover {
+    color: white;
+}
+
+.arrow-down {
+    width: 20px;
+    height: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(5px);
+    }
+
+    60% {
+        transform: translateY(3px);
+    }
+}
+
+/* --- MODAL TRAILER --- */
+.trailer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.trailer-modal {
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    background: black;
+    position: relative;
+    box-shadow: 0 0 30px rgba(234, 179, 8, 0.2);
+}
+
+.close-trailer-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-column {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .review-stats-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .rating-distribution {
+        width: 100%;
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+}

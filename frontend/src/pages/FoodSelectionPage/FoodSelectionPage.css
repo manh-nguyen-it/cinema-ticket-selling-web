@@ -1,0 +1,453 @@
+/* Tận dụng lại biến màu và style chung */
+.food-page {
+    background-color: var(--primary-bg);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.food-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    gap: 50px;
+    padding: 40px 20px;
+}
+
+/* Sidebar dùng chung class với trang SeatSelection nên không cần viết lại nếu import chung */
+/* Nếu chưa có thì copy CSS Sidebar từ file cũ qua */
+
+.main-food-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- FOOD GRID --- */
+.food-grid-scroll {
+    flex: 1;
+    /* overflow-y: auto; */
+    /* Nếu muốn scroll riêng */
+    margin-bottom: 40px;
+}
+
+.food-grid {
+    display: grid;
+    /* Dùng minmax: Cố gắng giữ 3 cột, nhưng nếu card nhỏ hơn 240px thì tự xuống dòng */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+    /* Tăng khoảng cách giữa các card */
+    gap: 50px;
+
+    /* Thêm padding cho container để bóng đổ (box-shadow) của card ngoài cùng không bị cắt */
+    padding: 10px;
+
+    /* Đảm bảo chiều rộng tính cả padding */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Đảm bảo card luôn lấp đầy chiều cao của dòng (để các card bằng nhau) */
+.food-card {
+    /* ... giữ các thuộc tính cũ ... */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #38134E;
+    background-color: #0f0518;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    justify-content: space-between;
+    /* Đẩy nội dung ra xa nhau */
+
+
+}
+
+.food-card:hover {
+    border-color: #64748b;
+    transform: translateY(-5px);
+    background-color: #150822;
+}
+
+.food-card.selected {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 15px rgba(255, 214, 96, 0.1);
+    /* Glow nhẹ khi chọn */
+}
+
+/* Ảnh món ăn */
+.food-img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.food-img-wrapper img {
+    width: 120px;
+    height: 120px;
+    /* Kích thước ảnh */
+    object-fit: cover;
+    border-radius: 50%;
+    /* Hình tròn */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Thông tin text */
+.food-info {
+    margin-bottom: 20px;
+    text-align: left;
+    /* Canh trái giống ảnh mẫu */
+}
+
+.food-name {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.food-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    /* Màu xám chữ */
+    margin: 0;
+    line-height: 1.4;
+
+    /* Cắt chữ nếu quá dài (2 dòng) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- FOOTER CARD (GIÁ & BUTTON) --- */
+.food-card-footer {
+    display: flex;
+    justify-content: space-between;
+    /* Đẩy giá sang trái, nút sang phải */
+    align-items: center;
+    margin-top: auto;
+    /* Đẩy xuống đáy card */
+}
+
+.food-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-yellow);
+    /* Màu vàng #FFD660 */
+}
+
+/* Nút tăng giảm (Dạng viên thuốc tối màu) */
+.food-qty-control {
+    display: flex;
+    align-items: center;
+    background-color: #1c1c24;
+    /* Màu nền viên thuốc (xám đen) */
+    border-radius: 20px;
+    /* Bo tròn viên thuốc */
+    padding: 4px 8px;
+    gap: 8px;
+}
+
+.btn-qty {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    /* Nền trong suốt */
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.btn-qty:hover:not(:disabled) {
+    color: var(--accent-yellow);
+}
+
+.btn-qty:disabled {
+    color: #4b5563;
+    /* Màu xám khi disable */
+    cursor: not-allowed;
+}
+
+.qty-value {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    min-width: 15px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+    }
+
+    .food-img-wrapper {
+        width: auto;
+        margin: 0;
+    }
+
+    .food-img-wrapper img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .food-card-footer {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+}
+
+/* --- ACTION PANEL --- */
+.food-action-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* Căn đáy để thẳng hàng với nút */
+    border-top: 1px solid var(--border-purple);
+    padding-top: 20px;
+    background-color: var(--primary-bg);
+    /* Đảm bảo nền che nội dung khi scroll */
+
+    /* Sticky footer (Tuỳ chọn: giúp thanh này luôn hiện ở dưới màn hình) */
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    padding-bottom: 20px;
+    /* Thêm padding đáy nếu sticky */
+}
+
+.panel-left-content {
+    flex: 1;
+    margin-right: 40px;
+    /* Cách nút bên phải ra */
+}
+
+/* Danh sách các tag (có scroll nếu quá dài) */
+.selected-foods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 150px;
+    /* Giới hạn chiều cao, scroll nếu chọn nhiều món */
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* --- SELECTED TAG STYLE (Giống ảnh mẫu) --- */
+.selected-food-tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: transparent;
+    /* Hoặc màu tối nhẹ */
+    border: 1px solid #4a4a5e;
+    /* Viền xám tím mỏng */
+    border-radius: 8px;
+    /* Bo góc nhẹ */
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 450px;
+    /* Độ rộng vừa phải */
+    transition: all 0.2s;
+}
+
+.selected-food-tag:hover {
+    border-color: #64748b;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.tag-name {
+    font-size: 15px;
+    color: white;
+    font-weight: 500;
+    margin-right: 15px;
+    min-width: 100px;
+    /* Đảm bảo tên thẳng hàng */
+}
+
+.tag-price {
+    font-size: 15px;
+    color: #94a3b8;
+    /* Màu xám cho giá tiền */
+    margin-right: auto;
+    /* Đẩy phần control sang tít bên phải */
+}
+
+/* Control tăng giảm nhỏ gọn */
+.tag-qty-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tag-qty-control button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+    /* Căn giữa dấu + - */
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    transition: color 0.2s;
+}
+
+.tag-qty-control button:hover {
+    color: var(--accent-yellow);
+}
+
+.tag-qty-val {
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    min-width: 15px;
+    text-align: center;
+}
+
+/* Scrollbar đẹp cho list tag */
+.selected-foods-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.selected-foods-list::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 2px;
+}
+
+/* ... Responsive ... */
+@media (max-width: 768px) {
+    .food-action-panel {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .panel-left-content {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .selected-food-tag {
+        max-width: 100%;
+    }
+}
+
+.hint-text {
+    color: white;
+    font-size: 14px;
+    margin: 0 0 5px 0;
+}
+
+.hint-sub {
+    color: #64748b;
+    font-size: 12px;
+    margin: 0;
+    font-style: italic;
+}
+
+.action-buttons-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.total-display {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.total-display strong {
+    color: var(--accent-yellow);
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.btn-add-cart {
+    background: #FCFC65;
+    /* Nền Vàng sáng */
+    color: #010108;
+    /* Chữ Đen đậm */
+
+    /* Các thuộc tính chung */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-add-cart:hover:not(:disabled) {
+    /* Hiệu ứng hover khi nút đang active */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(252, 252, 101, 0.4);
+}
+
+/* --- TRẠNG THÁI DISABLED (Chưa có sản phẩm) --- */
+.btn-add-cart:disabled {
+    background: #7C7C8D;
+    /* Nền Xám */
+    color: #454555;
+    /* Chữ Xám đậm hơn */
+    cursor: not-allowed;
+    /* Con trỏ báo cấm */
+    opacity: 1;
+    /* Đảm bảo màu hiện đúng 100% không bị mờ do mặc định trình duyệt */
+}
+
+
+
+.btn-skip {
+    background: transparent;
+    border: 1px solid #64748b;
+    color: #cbd5e1;
+    padding: 10px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.btn-skip:hover {
+    border-color: white;
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    .food-grid {
+        /* Khi màn hình nhỏ hơn 1200px, chuyển sang 2 cột cho thoáng */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .food-grid {
+        /* Mobile thì 1 cột */
+        grid-template-columns: 1fr;
+    }
+}

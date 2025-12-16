@@ -1,0 +1,217 @@
+/* Layout chung */
+.special-cinema-page {
+    background-color: var(--primary-bg);
+    /* Hoặc #0f0518 */
+    color: #FFFFFF;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    font-family: 'Roboto', sans-serif;
+    /* Đảm bảo font chữ hiện đại */
+}
+
+.special-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* --- HEADER --- */
+.special-header {
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.main-title {
+    font-size: 32px;
+    font-weight: 400;
+    /* Font mỏng giống ảnh */
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    text-align: left;
+    /* Căn trái theo yêu cầu */
+    letter-spacing: 1px;
+}
+
+.sub-title {
+    font-size: 18px;
+    color: #e2e8f0;
+    text-align: center;
+    /* Căn giữa theo yêu cầu */
+    margin: 0;
+    font-weight: 300;
+}
+
+/* --- BADGE CATEGORY --- */
+.category-label {
+    display: inline-block;
+    background-color: #3C1254;
+    /* Tím đậm */
+    color: #FFFFFF;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 28px;
+    margin-bottom: 40px;
+
+    /* Border trái màu vàng */
+    border-left: 5px solid #FFD660;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cinema-section-group {
+    margin-bottom: 80px;
+    /* Khoảng cách giữa 2 section lớn */
+}
+
+.cinema-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    /* Khoảng cách giữa các hàng item */
+}
+
+/* --- ITEM ROW (Khối chứa Ảnh và Text) --- */
+.cinema-row-item {
+    display: flex;
+    align-items: stretch;
+    /* Kéo dãn chiều cao bằng nhau */
+    gap: 30px;
+    /* KHOẢNG CÁCH GIỮA ẢNH VÀ NỘI DUNG */
+    height: 380px;
+    /* Chiều cao cố định để các khối đều nhau */
+}
+
+/* Đảo chiều cho phần "Phong Cách" (Nội dung trái - Ảnh phải) */
+.cinema-row-item.row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* --- KHỐI ẢNH --- */
+.item-image-box {
+    flex: 1.3;
+    /* Ảnh chiếm tỉ lệ lớn hơn text một chút (1.3 vs 1) */
+    border-radius: 16px;
+    /* Bo góc ảnh */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.item-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng zoom nhẹ khi hover */
+.cinema-row-item:hover .item-image-box img {
+    transform: scale(1.05);
+}
+
+/* --- KHỐI NỘI DUNG (TEXT BOX) --- */
+.item-text-box {
+    flex: 1;
+    /* Text chiếm tỉ lệ nhỏ hơn */
+    background-color: #3C1254;
+    /* Nền tím */
+    border-radius: 16px;
+    /* Bo góc khối text */
+    padding: 40px 50px;
+    /* Padding rộng rãi */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Căn nội dung vào giữa theo chiều dọc */
+
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho box text */
+.cinema-row-item:hover .item-text-box {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(60, 18, 84, 0.4);
+}
+
+.card-title {
+    font-size: 36px;
+    /* Tên to nổi bật */
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Chỉ riêng tên "IMAX" có thể làm to hơn hoặc style đặc biệt nếu muốn */
+/* .card-title:contains("IMAX") { color: #00A4E4; } */
+
+.card-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    /* Dãn dòng dễ đọc */
+    color: #d1d5db;
+    /* Xám sáng */
+    margin: 0;
+    text-align: justify;
+    /* Căn đều 2 bên cho đoạn văn đẹp mắt */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .cinema-row-item {
+        height: auto;
+        /* Chiều cao tự động */
+        min-height: 350px;
+    }
+
+    .item-text-box {
+        padding: 30px;
+    }
+
+    .card-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .special-header {
+        margin-bottom: 40px;
+    }
+
+    .main-title {
+        text-align: center;
+    }
+
+    /* Mobile thì căn giữa hết cho đẹp */
+
+    .cinema-row-item,
+    .cinema-row-item.row-reverse {
+        flex-direction: column;
+        /* Mobile xếp dọc hết */
+        height: auto;
+        gap: 20px;
+    }
+
+    .item-image-box {
+        height: 250px;
+        flex: none;
+        width: 100%;
+    }
+
+    .item-text-box {
+        flex: none;
+        width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
+        /* Đảm bảo padding không làm vỡ layout */
+    }
+
+    .card-desc {
+        text-align: left;
+        font-size: 14px;
+    }
+}
