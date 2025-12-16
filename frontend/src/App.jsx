@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router'
-import Header from './common/Header/Header.jsx'
+import Home from './home/Home.jsx'
 
 import './style.css'
 
@@ -7,7 +7,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/header" element={<Header />}/>
+                <Route index element={<Home />}/>
             </Routes>    
         </BrowserRouter>
     )

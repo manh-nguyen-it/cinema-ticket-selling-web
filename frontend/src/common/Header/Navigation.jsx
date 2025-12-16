@@ -2,12 +2,13 @@ import style from './style.module.css'
 
 function Navigation() {
     return (
-        <ul className={`${style.navigation} ${style.topLevelHeaderItem}`}>
-            <li><a href="">Danh sách rạp</a></li>
-            <li><a href="">Danh sách phim</a></li>
-            <li><a href="">Lịch chiếu</a></li>
-            <li><a href="">Giới thiệu</a></li>
-            <li><a href="">Liên hệ</a></li>
+        <ul className={style.navigation}>
+            <li><a href="">Trang chủ</a></li>
+            <li><a href="">Phim</a></li>
+            <li><a href="">Rạp Cineplex</a></li>
+            <li><a href="">Cultureplex</a></li>
+            <li><a href="">Tin mới & Ưu đãi</a></li>
+            <li><a href="">Vé của tôi</a></li>
         </ul>
     )
 }

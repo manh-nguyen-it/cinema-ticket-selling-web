@@ -1,8 +1,21 @@
+.header {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px 10px;
+}
+
+.logo {
+    color: red;
+    margin: 0px 10px;
+    align-self: center;
+}
+
 .navigation {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
     display: flex;
+    align-self: center;
 }
 
 .navigation li {
@@ -10,47 +23,25 @@
     padding: 0px 10px;
 }
 
-.topLevelHeader {
-    color: white;
-    height: 50px;
-    background-color: #222222;
-    display: flex;
-}
-
-.logo {
-    color: red;
-    margin: 0px 10px;
-}
-
-.topLevelHeaderItem {
-    align-self: center;
-}
-
-.topLevelHeader button {
-    width: 100px;
-    height: 30px;
-    margin: 0px 10px;
-}
-
-.secondLevelHeader {
-    height: 50px;
-    background-color: #cccccc;
-    display: flex;
-}
-
-.secondLevelHeader button {
-    width: 100px;
-    height: 30px;
-    margin: 0px 10px;
-}
-
-.secondLevelHeader input {
-    height: 20px;
-    width: 200px;
+.search input {
+    background-color: #1e0D28;
+    background-image: url(/images/search-icon.svg);
+    background-position: 5px 6px;
+    background-repeat: no-repeat;
+    height: 40px;
+    color: #fff;
+    padding-left: 30px;
+    border: 1px solid #38134e;
     border-radius: 10px;
-    padding: 0px 10px;
+    margin-right: 10px;
 }
 
-.secondLevelHeaderItem {
-    align-self: center;
+.btn button {
+    background-color: #451662;
+    border: 1px solid #38134e;
+    border-radius: 10px;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    padding-top: 0px;
 }

@@ -1,0 +1,70 @@
+.footer {
+  padding: 50px 24px;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.col h4 {
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 16px;
+}
+
+.copy {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.col p {
+  margin: 4px 0;
+}
+
+.col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.col ul li {
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.col ul li:hover {
+  color: #fff;
+}
+
+.fbBox {
+  background: #1a1a1a;
+  padding: 6px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.fbBox img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.followTitle {
+  margin-top: 16px;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+}
