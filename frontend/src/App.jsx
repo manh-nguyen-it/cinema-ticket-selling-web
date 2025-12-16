@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router'
-import Home from './home/Home.jsx'
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './style.css'
 
 // Import các trang của BẠN
 import MoviesPage from './pages/MoviesPage/MoviesPage';
@@ -12,7 +13,7 @@ import PaymentSuccessPage from './pages/PaymentSuccessPage/PaymentSuccessPage';
 import SpecialCinemaPage from './pages/SpecialCinemaPage/SpecialCinemaPage';
 import CinemaSystemPage from './pages/CinemaSystemPage/CinemaSystemPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
-
+import Home from './home/Home.jsx'
 // Import component của BẠN KIA (Ví dụ Header - nếu cần)
 // import Header from './components/Header/Header'; 
 
@@ -27,7 +28,7 @@ const App = () => {
                     {/* --- CÁC ROUTE CỦA BẠN --- */}
 
                     {/* Điều hướng mặc định */}
-                    <Route path="/" element={<Navigate to="/phim-dang-chieu" />} />
+                    <Route path="/" element={<Home />}/>
 
                     {/* Danh sách phim */}
                     <Route path="/phim-dang-chieu" element={<MoviesPage status="NOW" />} />
