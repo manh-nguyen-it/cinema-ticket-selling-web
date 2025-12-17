@@ -55,6 +55,7 @@ const App = () => {
                         <Route path="/he-thong-rap" element={<CinemaSystemPage />} />
                         <Route path="/dashboard" element={<DashboardPage />} />
                         <Route path="/lich-chieu" element={<SchedulePage />} />
+                        <Route path="/chi-tiet-phim" element={<MovieDetail/>} />
                     </Route>
 
                     <Route element={<NoHeaderAndFooter />}>
