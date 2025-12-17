@@ -1,187 +1,212 @@
+/* Container của 1 dòng phim */
 .schedule-item {
     display: flex;
-    /* background-color: #1a1f37; */
-    /* Màu nền tím than đậm */
-    /* border-radius: 12px; */
-    overflow: hidden;
-    margin-bottom: 20px;
-    /* padding: 20px; */
-    gap: 20px;
-    height: 340px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+    background-color: #1e1326;
+    /* Nền card đậm */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    gap: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Phần Poster */
-.schedule-poster-wrapper {
-    background-color: #1a1f37;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
-    width: 220px;
-    height: 340px;
-    /* padding: 20px; */
+.schedule-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(166, 80, 227, 0.15);
+}
 
+/* --- 1. POSTER (Đã tăng kích thước) --- */
+.sc-poster-area {
     position: relative;
+    /* [SỬA] Tăng kích thước poster lên 240px */
+    width: 240px;
+    flex-shrink: 0;
     border-radius: 8px;
     overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 2/3;
+    /* Giữ tỉ lệ chuẩn */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.schedule-poster {
+.sc-poster-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
+    transition: transform 0.5s ease;
 }
 
-.schedule-poster-wrapper::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* Tương đương top:0, right:0, bottom:0, left:0 */
-
-    /* Gradient từ trong suốt (trên) xuống đen mờ (dưới) */
-    background: linear-gradient(to bottom,
-            transparent 0%,
-            transparent 40%,
-            rgba(15, 23, 42, 0.8) 100%
-            /* Màu tối trùng với nền web hoặc đen */
-        );
-
-    z-index: 2;
-    /* Nằm trên ảnh (z-index mặc định là auto/0) */
-    pointer-events: none;
-    /* Quan trọng: Cho phép click xuyên qua gradient */
+/* Hover Zoom Effect */
+.sc-poster-area:hover .sc-poster-img {
+    transform: scale(1.1);
 }
 
-.play-icon-overlay {
+/* Overlay & Play Button */
+.sc-poster-overlay {
     position: absolute;
-    inset: 0;
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    z-index: 10;
-    gap: 13px;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .play-circle {
-    width: 38px;
-    height: 38px;
-    border: 2px solid white;
+    width: 60px;
+    height: 60px;
+    /* To hơn xíu cho cân đối */
     border-radius: 50%;
-    color: white;
+    border: 2px solid white;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 20px;
-    backdrop-filter: blur(2px);
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
 }
 
-/* Phần Thông tin */
-.schedule-info {
-
-    width: 500px;
-    /* Chiếm phần lớn không gian giữa */
-    display: flex;
-    flex-direction: column;
+.play-icon {
+    color: white;
+    font-size: 24px;
+    margin-left: 4px;
 }
 
-.schedule-full-info {
-    display: flex;
-    flex-direction: row;
+.sc-poster-area:hover .sc-poster-overlay {
+    opacity: 1;
+}
+
+.sc-poster-area:hover .play-circle {
+    transform: scale(1.1);
+}
+
+/* --- 2. INFO AREA --- */
+.sc-info-area {
     flex: 1;
-    padding: 20px;
-    background-color: #1a1f37;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    gap: 30px;
-}
-
-.schedule-title {
-    font-size: 26px;
-    color: #a78bfa;
-    /* Màu tím nhạt tiêu đề */
-    margin: 0 0 15px 0;
-}
-
-.schedule-details p {
-    margin: 5px 0;
-    font-size: 15px;
-    color: #e2e8f0;
-}
-
-.schedule-details strong {
-    color: #94a3b8;
-    /* Màu xám cho label */
-    width: 120px;
-    display: inline-block;
-}
-
-.detail-link {
-    margin-top: auto;
-    color: #eab308;
-    /* Màu vàng */
-    font-size: 14px;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-/* Phần Giờ chiếu */
-.schedule-times {
-    width: 300px;
-    border-left: 1px solid #334155;
-    padding-left: 20px;
     display: flex;
     flex-direction: column;
-}
-
-.times-label {
-    color: #e2e8f0;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.time-list {
-    display: flex;
-    flex-wrap: wrap;
     gap: 10px;
 }
 
-.time-btn {
-    background-color: #7dd3fc;
-    /* Màu xanh dương nhạt */
-    color: #0f172a;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 16px;
-    font-weight: bold;
+.sc-title {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 0 5px 0;
     cursor: pointer;
-    transition: opacity 0.2s;
+    font-weight: bold;
 }
 
-.time-btn:hover {
-    opacity: 0.8;
+.sc-title:hover {
+    color: #A650E3;
+}
+
+.sc-meta-row {
+    font-size: 15px;
+    color: #cbd5e1;
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+.icon-small {
+    color: #A650E3;
+    margin-right: 5px;
+}
+
+.sc-label {
+    color: #94a3b8;
+    font-weight: 600;
+    min-width: 90px;
+}
+
+.sc-value {
+    color: #fff;
+}
+
+.text-highlight {
+    color: #F3EA75;
+}
+
+.sc-detail-link {
+    color: #F3EA75;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* --- 3. TIME AREA --- */
+.sc-time-area {
+    width: 320px;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.time-format-label {
+    font-size: 15px;
+    color: #e2e8f0;
+    margin-bottom: 15px;
+    font-weight: bold;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.time-slots-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* [SỬA] Màu nút giờ chiếu theo yêu cầu */
+.time-slot-btn {
+    background-color: #66A5D1;
+    /* Màu xanh yêu cầu */
+    color: #FFFFFF;
+    /* Chữ trắng cho nổi */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.time-slot-btn:hover {
+    background-color: #8acdf8;
+    /* Sáng hơn khi hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(102, 165, 209, 0.4);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .schedule-item {
         flex-direction: column;
     }
 
-    .schedule-times {
+    .sc-poster-area {
         width: 100%;
-        border-left: none;
-        border-top: 1px solid #334155;
-        padding-left: 0;
-        padding-top: 20px;
+        max-width: 300px;
+        aspect-ratio: 2/3;
+        align-self: center;
     }
 
-    .schedule-poster-wrapper {
+    .sc-time-area {
         width: 100%;
-        height: 300px;
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
     }
 }

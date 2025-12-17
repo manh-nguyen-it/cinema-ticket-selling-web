@@ -1,43 +1,46 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaPlay, FaTicketAlt } from 'react-icons/fa';
 import './MovieCard.css';
 
-const MovieCard = ({ data }) => {
-    // Hàm helper để hiển thị nhãn tuổi (C13, C16, P)
-    // Đã bỏ ": number" ở tham số age
-    const getAgeLabel = (age) => {
-        return age === 0 ? 'P' : `C${age}`;
+const MovieCard = ({ data, onTrailerClick }) => {
+    const navigate = useNavigate();
+
+    const handleBooking = (e) => {
+        e.stopPropagation();
+        navigate(`/dat-ve/${data.id}`);
+    };
+
+    const handleWatchTrailer = (e) => {
+        e.stopPropagation();
+        if (onTrailerClick) onTrailerClick();
     };
 
     return (
-        <div className="movie-card">
-            <div className="poster-wrapper">
-                <img src={data.photo_link} alt={data.name} className="poster-img" />
+        // Đổi tên class 'movie-card' -> 'mc-container'
+        <div className="mc-container">
+            <div className="mc-poster">
+                <img src={data.poster} alt={data.title} />
 
-                {/* Nhãn độ tuổi ở góc trái trên */}
-                <div className="age-badge">{getAgeLabel(data.age)}</div>
+                <div className="mc-overlay">
+                    <button className="mc-btn book-btn" onClick={handleBooking}>
+                        <FaTicketAlt /> Đặt Vé
+                    </button>
 
-                {/* Lớp phủ đen khi hover */}
-                <div className="overlay">
-                    <a href={data.trailer_video_link} className="btn-outline">
-                        Xem Trailer
-                    </a>
-                    <button className="btn-primary">MUA VÉ</button>
+                    <button className="mc-btn trailer-btn" onClick={handleWatchTrailer}>
+                        <FaPlay /> Trailer
+                    </button>
                 </div>
             </div>
 
-            <div className="movie-info">
-                <h3 className="movie-title" title={data.name}>{data.name}</h3>
-                <p className="movie-genre">{data.genre_name}</p>
+            <div className="mc-info">
+                {/* Đổi 'card-title' -> 'mc-title' để không bị trùng */}
+                <h3 className="mc-title">{data.title}</h3>
+                <p className="mc-genre">{data.genre}</p>
 
-                <div className="movie-meta">
-                    {/* Logic hiển thị Ngày khởi chiếu hoặc Thời lượng */}
-                    <span className="duration">
-                        {data.release_date ? (
-                            <>📅 {data.release_date}</>
-                        ) : (
-                            <>🕒 {data.period} phút</>
-                        )}
-                    </span>
+                <div className="mc-rating-row">
+                    <span className="mc-age-badge">{data.ageRating || "P"}</span>
+                    <span className="mc-duration">{data.duration}</span>
                 </div>
             </div>
         </div>

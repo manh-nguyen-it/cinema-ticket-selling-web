@@ -322,19 +322,28 @@ const DashboardPage = () => {
                     <div className="related-grid">
                         {MOCK_RELATED_MOVIES.map(movie => (
                             <div key={movie.id} className="related-card">
+                                {/* 1. Poster */}
                                 <div className="related-poster">
                                     <img src={movie.poster} alt={movie.title} />
                                 </div>
-                                <div className="related-info">
-                                    <h4 className="related-title">{movie.title}</h4>
-                                    <div className="related-meta">
+
+                                {/* 2. Nội dung thông tin (Hiện khi KHÔNG hover) */}
+                                <div className="related-info-normal">
+                                    <div className="related-row-top">
+                                        <h4 className="related-title">{movie.title}</h4>
                                         <span className="related-rating"><FaStar /> {movie.rating}</span>
                                     </div>
-                                    <div className="related-sub-meta">
-                                        <span>{movie.genre}</span>
-                                        <span><FaClock size={10} style={{ marginRight: 3 }} />{movie.duration}</span>
+                                    <p className="related-genre">{movie.genre}</p>
+                                    <div className="related-row-btm">
+                                        <span className="related-duration"><FaClock size={10} style={{ marginRight: 4 }} /> {movie.duration}</span>
                                         <span className="mini-badge">{movie.ageRating}</span>
                                     </div>
+                                </div>
+
+                                {/* 3. Actions Overlay (Hiện khi HOVER) */}
+                                <div className="related-hover-overlay">
+                                    <button className="btn-hover-book">Book Now</button>
+                                    <button className="btn-hover-trailer">Watch Trailer</button>
                                 </div>
                             </div>
                         ))}

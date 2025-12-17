@@ -1,54 +1,58 @@
-/* Container của card */
-.movie-card {
-    width: 321px;
-    height: 517px;
+/* Container chính */
+.mc-container {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    background: transparent;
+    cursor: pointer;
     transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 260px;
+
+    /* [QUAN TRỌNG 1] Ép card chiếm toàn bộ chiều cao của ô Grid */
+    height: 100%;
 }
 
-.movie-card:hover {
-    transform: translateY(-5px);
-    /* Hiệu ứng nổi lên nhẹ */
+.mc-container:hover {
+    transform: translateY(-8px);
 }
 
-/* Phần hình ảnh Poster */
-.poster-wrapper {
+/* --- POSTER (Tỉ lệ 2:3) --- */
+.mc-poster {
     position: relative;
+    border-radius: 12px;
+    overflow: hidden;
     width: 100%;
     aspect-ratio: 2 / 3;
-    /* Tỷ lệ chuẩn poster phim */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Giữ khung hình cố định */
+    background-color: #222;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+    /* Poster không được co giãn để nhường chỗ cho text */
+    flex-shrink: 0;
 }
 
-.poster-img {
+.mc-poster img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-/* Nhãn độ tuổi */
-.age-badge {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background-color: var(--badge-yellow);
-    color: #000;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
-    z-index: 2;
+.mc-poster:hover img {
+    transform: scale(1.1);
 }
 
-/* Overlay (Lớp phủ khi hover) */
-.overlay {
+/* --- OVERLAY --- */
+.mc-overlay {
     position: absolute;
-    inset: 0;
-    /* top:0, right:0, bottom:0, left:0 */
-    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,68 +62,102 @@
     transition: opacity 0.3s ease;
 }
 
-.poster-wrapper:hover .overlay {
+.mc-poster:hover .mc-overlay {
     opacity: 1;
 }
 
-/* Nút bấm trong overlay */
-.btn-outline {
-    padding: 8px 16px;
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.2s;
+/* --- BUTTONS --- */
+.mc-btn {
+    border: none;
+    padding: 8px 0;
+    width: 120px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: transform 0.2s;
 }
 
-.btn-outline:hover {
-    background: #fff;
+.mc-btn:hover {
+    transform: scale(1.05);
+}
+
+.book-btn {
+    background-color: #F3EA75;
     color: #000;
 }
 
-.btn-primary {
-    padding: 8px 24px;
-    background-color: var(--accent-color);
+.book-btn:hover {
+    background-color: #fff;
+}
+
+.trailer-btn {
+    background-color: transparent;
+    border: 1.5px solid #fff;
     color: #fff;
-    border: none;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.5);
-    transition: background 0.2s;
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
+.trailer-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Thông tin phía dưới */
-.movie-info {
-    margin-top: 12px;
+/* --- INFO TEXT --- */
+.mc-info {
+    padding: 0 4px;
+
+    /* [QUAN TRỌNG 2] Biến phần Info thành Flex container */
+    display: flex;
+    flex-direction: column;
+
+    /* [QUAN TRỌNG 3] Tự động giãn nở để lấp đầy khoảng trống còn lại */
+    flex: 1;
 }
 
-.movie-title {
-    margin: 0;
-    font-size: 18px;
+.mc-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+
+    /* Giới hạn 1 dòng, nếu dài quá thì ... */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--text-primary);
 }
 
-.movie-genre {
-    margin: 4px 0;
-    font-size: 14px;
-    color: var(--text-secondary);
+.mc-genre {
+    color: #94a3b8;
+    font-size: 12px;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.movie-meta {
+.mc-rating-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
-    color: var(--text-secondary);
+
+    /* [QUAN TRỌNG 4] Đẩy dòng này xuống đáy cùng của card */
+    margin-top: auto;
+}
+
+.mc-age-badge {
+    background-color: #334155;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.mc-duration {
+    color: #cbd5e1;
+    font-size: 12px;
 }

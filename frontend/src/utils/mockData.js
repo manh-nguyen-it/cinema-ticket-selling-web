@@ -3,63 +3,499 @@
 
 export const NOW_SHOWING_FILMS = [
   {
-    film_id: "F001",
-    name: "Avatar: The Way of Water",
-    type_id: "T01",
-    genre_name: "Hành động / Viễn tưởng",
-    period: 192,
-    age: 13,
-    description: "Jake Sully lives with his newfound family...",
-    trailer_video_link: "#",
-    photo_link: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    id: 1,
+    title: "Avatar: Dòng Chảy Của Nước",
+    poster: "../assets/nowshowing/avatar.png",
+    genre: "Hành động, Viễn tưởng",
+    duration: "3 giờ 12 phút",
+    rating: 9.5,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/d9MyqF13IT1"
   },
   {
-    film_id: "F002",
-    name: "Mèo Đi Hia: Điều Ước Cuối Cùng",
-    type_id: "T02",
-    genre_name: "Hoạt hình / Phiêu lưu",
-    period: 102,
-    age: 0, // 0 tương ứng với P (Phổ biến)
-    description: "Puss in Boots discovers that his passion...",
-    trailer_video_link: "#",
-    photo_link: "https://image.tmdb.org/t/p/w500/kuf6dutpsT0vSVehic3EZIqkOBt.jpg",
-  }];
+    id: 2,
+    title: "Ant-Man and the Wasp: Quantumania",
+    poster: "/assets/nowshowing/antman.jpg",
+    genre: "Hành động, Phiêu lưu",
+    duration: "2 giờ 5 phút",
+    rating: 7.8,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/ZlNFpri-Y40"
+  },
+  {
+    id: 3,
+    title: "Shazam! Cơn Thịnh Nộ Của Các Vị Thần",
+    poster: "/assets/nowshowing/shazam.jpg",
+    genre: "Hành động, Hài",
+    duration: "2 giờ 10 phút",
+    rating: 7.5,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/Zi88i4CpHe4"
+  },
+  {
+    id: 4,
+    title: "Creed III: Tay Đấm Huyền Thoại",
+    poster: "/assets/nowshowing/creed3.png",
+    genre: "Thể thao, Tâm lý",
+    duration: "1 giờ 56 phút",
+    rating: 8.2,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/AHmCH7iB_IM"
+  },
+  {
+    id: 5,
+    title: "Jujutsu Kaisen 0: Chú Thuật Hồi Chiến",
+    poster: "/assets/nowshowing/chuthuat.png",
+    genre: "Hoạt hình, Hành động",
+    duration: "1 giờ 45 phút",
+    rating: 8.9,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/e8YBesRKq_U"
+  },
+  {
+    id: 6,
+    title: "Mộ Đom Đóm (Grave of the Fireflies)",
+    poster: "/assets/nowshowing/modomdom.png",
+    genre: "Hoạt hình, Chiến tranh",
+    duration: "1 giờ 29 phút",
+    rating: 9.0,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/4vPeTSRd580"
+  },
+  {
+    id: 7,
+    title: "Godzilla Minus One",
+    poster: "/assets/nowshowing/godzillaminusone.png",
+    genre: "Khoa học viễn tưởng, Kinh dị",
+    duration: "2 giờ 5 phút",
+    rating: 8.7,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/r7DqccP1Q_4"
+  },
+  {
+    id: 8,
+    title: "Wicked: Phần 2",
+    poster: "/assets/nowshowing/wicked2.png",
+    genre: "Nhạc kịch, Thần thoại",
+    duration: "2 giờ 30 phút",
+    rating: 8.0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/6COmYeL5-q8"
+  },
+  {
+    id: 9,
+    title: "Anh Trai Say Xe",
+    poster: "/assets/nowshowing/anhtraisayxe.png",
+    genre: "Hài, Tình cảm",
+    duration: "1 giờ 50 phút",
+    rating: 7.2,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 10,
+    title: "Cưới Vợ Cho Cha",
+    poster: "/assets/nowshowing/cuoivochocha.png",
+    genre: "Gia đình, Hài",
+    duration: "1 giờ 45 phút",
+    rating: 7.5,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 11,
+    title: "Tình Người Duyên Ma (2025)",
+    poster: "/assets/nowshowing/tinhnguoiduyenma2025.png",
+    genre: "Kinh dị, Hài",
+    duration: "1 giờ 55 phút",
+    rating: 7.0,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 12,
+    title: "Sư Thầy Gặp Sư Lấy",
+    poster: "/assets/nowshowing/suthaygapsulay.png",
+    genre: "Hài, Tôn giáo",
+    duration: "1 giờ 40 phút",
+    rating: 6.8,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 13,
+    title: "Truy Tìm Long Diên Hương",
+    poster: "/assets/nowshowing/truytimlongdienhuong.png",
+    genre: "Hành động, Hài",
+    duration: "1 giờ 50 phút",
+    rating: 7.4,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 14,
+    title: "Trốn Chạy Tử Thần",
+    poster: "/assets/nowshowing/tronchaytuthan.png",
+    genre: "Hành động, Kịch tính",
+    duration: "1 giờ 48 phút",
+    rating: 7.6,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 15,
+    title: "Quái Thú: Vùng Đất Chết Chóc",
+    poster: "/assets/nowshowing/quaithu.png",
+    genre: "Kinh dị, Hành động",
+    duration: "1 giờ 52 phút",
+    rating: 7.9,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 16,
+    title: "Núi Tế Vong",
+    poster: "/assets/nowshowing/nuitevong.png",
+    genre: "Kinh dị, Tâm linh",
+    duration: "1 giờ 45 phút",
+    rating: 6.9,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 17,
+    title: "Không Bóng Tuyết Nào Trong Sạch",
+    poster: "/assets/nowshowing/khongbongtuyetnaotrongsach.png",
+    genre: "Tâm lý, Hình sự",
+    duration: "2 giờ 10 phút",
+    rating: 8.5,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 18,
+    title: "Kỳ Án Nghỉ",
+    poster: "/assets/nowshowing/kyannghi.png",
+    genre: "Trinh thám, Bí ẩn",
+    duration: "1 giờ 58 phút",
+    rating: 7.7,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 19,
+    title: "G-Dragon in Cinema",
+    poster: "/assets/nowshowing/gdragon.png",
+    genre: "Tài liệu, Âm nhạc",
+    duration: "1 giờ 35 phút",
+    rating: 9.8,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 20,
+    title: "Tafiti: Hành Trình Sa Mạc",
+    poster: "/assets/nowshowing/tafiti.png",
+    genre: "Hoạt hình, Gia đình",
+    duration: "1 giờ 25 phút",
+    rating: 7.3,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 21,
+    title: "What's Love Got to Do with It?",
+    poster: "/assets/nowshowing/what'slovegottodowithit.jpg",
+    genre: "Lãng mạn, Hài",
+    duration: "1 giờ 48 phút",
+    rating: 7.1,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 22,
+    title: "Hawa",
+    poster: "/assets/nowshowing/hawa.jpg",
+    genre: "Tâm lý, Chính kịch",
+    duration: "2 giờ 00 phút",
+    rating: 7.5,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 23,
+    title: "Paran",
+    poster: "/assets/nowshowing/paran.jpg",
+    genre: "Kinh dị, Siêu nhiên",
+    duration: "1 giờ 50 phút",
+    rating: 6.5,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 24,
+    title: "Radio",
+    poster: "/assets/nowshowing/radio.jpg",
+    genre: "Chính kịch, Lịch sử",
+    duration: "2 giờ 15 phút",
+    rating: 8.0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  }
+];
+
+
+
+// --- HÀM TẠO LỊCH CHIẾU TỰ ĐỘNG CHO 7 NGÀY TỚI ---
+const generateWeeklySchedule = () => {
+  const days = [];
+  const today = new Date();
+  const weekDaysVN = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+
+  // Tạo 7 ngày liên tiếp
+  for (let i = 0; i < 7; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
+
+    const dayNumber = date.getDate(); // Ví dụ: 17
+    const dayOfWeek = weekDaysVN[date.getDay()]; // Ví dụ: Thứ Sáu
+
+    // Mỗi ngày chọn ngẫu nhiên khoảng 4-6 phim từ danh sách NOW_SHOWING_FILMS
+    // (Dùng thuật toán giả ngẫu nhiên đơn giản để phim thay đổi theo ngày)
+    const shuffledMovies = [...NOW_SHOWING_FILMS].sort(() => 0.5 - Math.random());
+    const dailyMoviesCount = 4 + (i % 3); // Biến động số lượng phim (4, 5, hoặc 6 phim)
+
+    const moviesForDay = shuffledMovies.slice(0, dailyMoviesCount).map(movie => {
+      // Sinh giờ chiếu ngẫu nhiên cho mỗi phim
+      const baseTimes = ["09:00", "10:15", "11:30", "13:00", "14:45", "16:30", "19:00", "20:15", "21:30", "23:00"];
+      // Lấy ngẫu nhiên 3-5 suất chiếu
+      const showtimes = baseTimes.filter(() => Math.random() > 0.6);
+
+      // Đảm bảo ít nhất có 2 suất chiếu
+      if (showtimes.length < 2) {
+        showtimes.push("18:00", "20:30");
+      }
+
+      return {
+        ...movie,
+        showtimes: showtimes.sort() // Sắp xếp giờ tăng dần
+      };
+    });
+
+    days.push({
+      dateString: date.toISOString().split('T')[0], // YYYY-MM-DD
+      dayNumber: dayNumber,
+      dayOfWeek: dayOfWeek,
+      movies: moviesForDay
+    });
+  }
+  return days;
+};
+
+// Xuất dữ liệu lịch chiếu đã được sinh ra
+export const WEEKLY_SCHEDULE_DATA = generateWeeklySchedule();
 
 export const COMING_SOON_FILMS = [
   {
-    film_id: "C001",
-    name: "Siêu Lừa Gặp Siêu Lầy",
-    type_id: "T03",
-    genre_name: "Hài / Hành động",
-    period: 112,
-    age: 16,
-    description: "Bộ phim hài hước...",
-    trailer_video_link: "#",
-    photo_link: "https://image.tmdb.org/t/p/w500/zJrO5gG9Nl3CjU5Yj7sK8j9l5k.jpg",
+    id: 101,
+    title: "Zootopia 2: Phi Vụ Động Trời",
+    poster: "/assets/upcoming/zootopia2.png",
+    genre: "Hoạt hình, Phiêu lưu",
+    duration: "1 giờ 40 phút",
+    rating: 0, // Chưa chiếu nên chưa có rating hoặc để mặc định
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
-    film_id: "C002",
-    name: "Shazam! Cơn Thịnh Nộ Của Các Vị Thần",
-    type_id: "T01",
-    genre_name: "Hành động / Phiêu lưu",
-    period: 130,
-    age: 13,
-    description: "...",
-    trailer_video_link: "#",
-    photo_link: "https://image.tmdb.org/t/p/w500/a3o6guv5s3t3s5c5s5c5s5.jpg", // Link giả lập
+    id: 102,
+    title: "Năm Đêm Kinh Hoàng 2 (FNAF 2)",
+    poster: "/assets/upcoming/fnaf.png",
+    genre: "Kinh dị, Giật gân",
+    duration: "1 giờ 55 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
-    film_id: "C003",
-    name: "Vệ Binh Dải Ngân Hà 3",
-    type_id: "T01",
-    genre_name: "Hành động / Viễn tưởng",
-    period: 150,
-    age: 13,
-    description: "...",
-    trailer_video_link: "#",
-    photo_link: "https://image.tmdb.org/t/p/w500/r2J02Z2OpKQryPA4F3.jpg",
+    id: 103,
+    title: "Thám Tử Lừng Danh Conan: Ký Ức Ngủ Vùi",
+    poster: "/assets/upcoming/conan.png",
+    genre: "Hoạt hình, Trinh thám",
+    duration: "1 giờ 50 phút",
+    rating: 0,
+    ageRating: "C13",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
-  // Thêm các phim khác từ ảnh...
+  {
+    id: 104,
+    title: "Phi Vụ Thế Kỷ 3",
+    poster: "/assets/upcoming/phivutheky.png",
+    genre: "Hành động, Ảo thuật",
+    duration: "2 giờ 10 phút",
+    rating: 0,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 105,
+    title: "96 Phút Sinh Tử",
+    poster: "/assets/upcoming/96phutsinhtu.png",
+    genre: "Hành động, Kịch tính",
+    duration: "1 giờ 36 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 106,
+    title: "Vua Của Các Vua (The King of Kings)",
+    poster: "/assets/upcoming/vuacuacacvua.png",
+    genre: "Hoạt hình, Gia đình",
+    duration: "1 giờ 45 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 107,
+    title: "5 Centimet Trên Giây",
+    poster: "/assets/upcoming/5cmps.png",
+    genre: "Hoạt hình, Lãng mạn",
+    duration: "1 giờ 03 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 108,
+    title: "100M: Bứt Phá Giới Hạn",
+    poster: "/assets/upcoming/100m.png",
+    genre: "Hoạt hình, Thể thao",
+    duration: "1 giờ 50 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 109,
+    title: "Ma Lũng Tường",
+    poster: "/assets/upcoming/malungtuong.png",
+    genre: "Kinh dị, Tâm linh",
+    duration: "1 giờ 48 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 110,
+    title: "Phòng Trọ Ma Bầu",
+    poster: "/assets/upcoming/phongtromabau.png",
+    genre: "Kinh dị, Hài",
+    duration: "1 giờ 45 phút",
+    rating: 0,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 111,
+    title: "Nhà Hai Chủ",
+    poster: "/assets/upcoming/nhahaichu.png",
+    genre: "Kinh dị, Bí ẩn",
+    duration: "1 giờ 52 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 112,
+    title: "Phiên Chợ Của Quỷ",
+    poster: "/assets/upcoming/phienchocuaquy.png",
+    genre: "Kinh dị, Giật gân",
+    duration: "1 giờ 40 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 113,
+    title: "Hoàng Tử Quỷ",
+    poster: "/assets/upcoming/hoangtuquy.png",
+    genre: "Kinh dị, Cổ trang",
+    duration: "2 giờ 00 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 114,
+    title: "Gangster Về Làng",
+    poster: "/assets/upcoming/gangstervelang.png",
+    genre: "Hài, Hành động",
+    duration: "1 giờ 55 phút",
+    rating: 0,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 115,
+    title: "Regretting You: Hối Tiếc",
+    poster: "/assets/upcoming/forgettingyou.png",
+    genre: "Tâm lý, Tình cảm",
+    duration: "1 giờ 58 phút",
+    rating: 0,
+    ageRating: "C16",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 116,
+    title: "Quán Kỳ Nam",
+    poster: "/assets/upcoming/quankynam.png",
+    genre: "Tâm lý, Xã hội",
+    duration: "2 giờ 05 phút",
+    rating: 0,
+    ageRating: "C18",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 117,
+    title: "Thế Hệ Kỳ Tích",
+    poster: "/assets/upcoming/thehekytich.png",
+    genre: "Tâm lý, Gia đình",
+    duration: "1 giờ 50 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 118,
+    title: "Scarlet",
+    poster: "/assets/upcoming/scarlet.png",
+    genre: "Hoạt hình, Phiêu lưu",
+    duration: "1 giờ 45 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 119,
+    title: "j-hope IN THE BOX",
+    poster: "/assets/upcoming/jhope.png",
+    genre: "Tài liệu, Âm nhạc",
+    duration: "1 giờ 25 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    id: 120,
+    title: "TXT: TOMORROW X TOGETHER",
+    poster: "/assets/upcoming/txt.png",
+    genre: "Âm nhạc, Concert",
+    duration: "1 giờ 40 phút",
+    rating: 0,
+    ageRating: "P",
+    trailerUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  }
 ];
 
 export const MOCK_SCHEDULE = [

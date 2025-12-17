@@ -26,6 +26,7 @@ import Register from './register/Register.jsx'
 import MainLayout from './layout/MainLayout.jsx'
 import NoHeaderAndFooter from './layout/NoHeaderAndFooter.jsx'
 import News from './news/News.jsx'
+import SchedulePage from './pages/SchedulePage/SchedulePage.jsx'
 
 const App = () => {
     return (
@@ -38,7 +39,7 @@ const App = () => {
                         <Route path="/promotion/1" element={<GS />} />
                         <Route path="/phim-dang-chieu" element={<MoviesPage status="NOW" />} />
                         <Route path="/phim-sap-chieu" element={<MoviesPage status="COMING" />} />
-
+                        <Route path="/lich-chieu" element={<SchedulePage />} />
                         {/* Chi tiết & Đặt vé */}
                         <Route path="/phim/:id" element={<MovieDetail />} />
                         <Route path="/dat-ve/:id" element={<BookingPage />} />
@@ -56,8 +57,8 @@ const App = () => {
                     </Route>
 
                     <Route element={<NoHeaderAndFooter />}>
-                    <Route path="/quy-dinh-cua-rap" element={<CinemaRulesPage />} />
-                        <Route path="/news" element={<News />}/>
+                        <Route path="/quy-dinh-cua-rap" element={<CinemaRulesPage />} />
+                        <Route path="/news" element={<News />} />
                         <Route path="/dang-nhap" element={<Login />} />
                         <Route path="/dang-ky" element={<Register />} />
                     </Route>

@@ -1,15 +1,15 @@
-/* Layout chung (Giữ nguyên) */
+/* Layout chung - Nền tối */
 .box-office-page {
     background-color: #03030A;
-    /* Nền tối của trang web */
+    /* Nền tối mặc định */
     min-height: 100vh;
-    color: white;
     font-family: 'Roboto', sans-serif;
+    color: white;
     display: flex;
     flex-direction: column;
 }
 
-/* Header (Giữ nguyên) */
+/* Header trong suốt */
 .bo-header-top {
     display: flex;
     justify-content: space-between;
@@ -21,22 +21,23 @@
 .brand-logo {
     font-size: 24px;
     font-weight: bold;
-    color: #8A66C3;
+    color: #fff;
 }
 
 .brand-logo span {
-    color: #E2E8F0;
     font-weight: 300;
+    opacity: 0.8;
 }
 
 .search-bar {
-    background: #333;
+    background: rgba(255, 255, 255, 0.1);
     padding: 8px 15px;
-    border-radius: 4px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .search-bar input {
@@ -47,76 +48,236 @@
     width: 100%;
 }
 
-.search-icon {
-    color: #999;
+/* Wrapper nội dung chính */
+.bo-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
 }
 
-/* Wrapper (Giữ nguyên) */
-.bo-wrapper {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    width: 100%;
+.back-btn-container {
+    margin-bottom: 20px;
+}
+
+/* --- [MỚI] CONTAINER THEME CÓ BACKGROUND --- */
+.bo-themed-container {
+    /* Ảnh nền chỉ nằm trong khối này */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 24px;
+    /* Bo góc cho khối */
+    padding: 60px 20px;
+    /* Padding bên trong */
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    /* Đổ bóng để nổi bật trên nền tối */
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Căn giữa nội dung */
+    justify-content: center;
 }
 
-/* --- CONTAINER CHỨA ẢNH --- */
-.bo-image-container {
-    width: 100%;
+/* Tiêu đề */
+.bo-main-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 70px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* --- PODIUM (BỤC XẾP HẠNG) --- */
+.podium-container {
     display: flex;
+    align-items: flex-end;
+    /* Căn đáy */
     justify-content: center;
+    gap: 50px;
+    /* Khoảng cách rộng hơn xíu */
     margin-bottom: 30px;
 }
 
-/* Style cho bức ảnh lớn */
-.ranking-full-img {
-    width: 100%;
-    max-width: 1000px;
-    /* Giới hạn chiều rộng tối đa để không bị quá to trên màn hình lớn */
-    height: auto;
-    /* Chiều cao tự động theo tỉ lệ ảnh */
+/* Style chung cho Card */
+.podium-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.podium-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Poster Box - Cần relative để chứa rank overlay */
+.poster-box {
+    position: relative;
     border-radius: 12px;
-    /* Bo góc nhẹ cho ảnh đẹp hơn */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    /* Tạo bóng đổ để ảnh nổi lên */
-    object-fit: contain;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    /* Khoảng cách với doanh thu bên dưới */
+    border: 3px solid transparent;
 }
 
-/* Nút Back (Giữ nguyên) */
-.btn-back-home {
-    background-color: #4a1d6e;
+.poster-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- [MỚI] RANK OVERLAY (ĐÈ LÊN ẢNH) --- */
+.rank-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* Nền đen mờ để rõ chữ */
+    padding: 8px 15px;
+    border-bottom-right-radius: 12px;
     color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 500;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1;
+    backdrop-filter: blur(4px);
+}
+
+.rank-num {
+    font-size: 28px;
+    font-weight: 900;
+    margin-left: 5px;
+}
+
+
+/* Doanh thu pill (Căn giữa bên dưới) */
+.revenue-pill {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    /* Giữ trên 1 dòng */
+}
+
+/* --- TÙY CHỈNH KÍCH THƯỚC TỪNG VỊ TRÍ (Tăng size) --- */
+
+/* TOP 1 (GIỮA) */
+.rank-1 {
+    order: 2;
+    margin-bottom: 40px;
+    /* Đẩy cao hơn */
+    z-index: 2;
+    /* Nổi lên trên */
+}
+
+.rank-1 .poster-box {
+    /* Tăng kích thước */
+    width: 280px;
+    height: 420px;
+    border-color: #FFD700;
+    /* Vàng Gold */
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.rank-1 .rank-overlay {
+    color: #FFD700;
+}
+
+/* Chữ vàng */
+
+/* TOP 2 (TRÁI) */
+.rank-2 {
+    order: 1;
+}
+
+.rank-2 .poster-box {
+    /* Tăng kích thước */
+    width: 220px;
+    height: 330px;
+    border-color: #C0C0C0;
+    /* Bạc */
+}
+
+.rank-2 .rank-overlay {
+    color: #C0C0C0;
+}
+
+/* TOP 3 (PHẢI) */
+.rank-3 {
+    order: 3;
+}
+
+.rank-3 .poster-box {
+    /* Tăng kích thước */
+    width: 220px;
+    height: 330px;
+    border-color: #CD7F32;
+    /* Đồng */
+}
+
+.rank-3 .rank-overlay {
+    color: #CD7F32;
+}
+
+/* Nút Back */
+.btn-back-trans {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background 0.3s;
-    align-self: flex-start;
-    /* Nút nằm bên trái */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    width: fit-content;
 }
 
-.btn-back-home:hover {
-    background-color: #663399;
+.btn-back-trans:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: white;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .bo-header-top {
+/* Responsive Mobile */
+@media (max-width: 900px) {
+    .podium-container {
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        gap: 60px;
     }
 
-    .search-bar {
-        width: 100%;
+    /* Trên mobile thì reset order để Top 1 lên đầu */
+    .rank-1 {
+        order: -1;
+        margin-bottom: 0;
+        transform: scale(1.1);
     }
 
-    .btn-back-home {
-        align-self: center;
+    .rank-2,
+    .rank-3 {
+        order: 0;
+        transform: scale(1);
     }
 
-    /* Mobile thì căn giữa nút back */
+    .bo-themed-container {
+        padding: 40px 15px;
+    }
+
+    .bo-main-title {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
 }

@@ -846,46 +846,71 @@
 }
 
 .related-card {
+    position: relative;
+    /* Quan trọng để overlay căn theo card */
+    background-color: transparent;
+    /* Hoặc màu nền nếu muốn */
+    border-radius: 8px;
+    overflow: hidden;
+    /* Bo góc cả ảnh và overlay */
     cursor: pointer;
     transition: transform 0.2s;
 }
 
+/* Hiệu ứng zoom nhẹ cả card khi hover */
 .related-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .related-poster {
     width: 100%;
     aspect-ratio: 2/3;
-    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 10px;
+    /* Poster bo góc trên, phần dưới do card lo */
+    border-radius: 8px;
 }
 
 .related-poster img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* Khi hover thì ảnh zoom nhẹ một chút cho đẹp */
+.related-card:hover .related-poster img {
+    transform: scale(1.05);
+}
+
+/* --- PHẦN THÔNG TIN BÌNH THƯỜNG --- */
+.related-info-normal {
+    padding: 12px 0;
+    /* Padding trên dưới */
+    transition: opacity 0.3s;
+}
+
+.related-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
 }
 
 .related-title {
-    font-size: 15px;
+    font-size: 16px;
     color: white;
-    margin: 0 0 5px 0;
+    font-weight: bold;
+    margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.related-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+    flex: 1;
+    margin-right: 10px;
 }
 
 .related-rating {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--accent-yellow);
     font-weight: bold;
     display: flex;
@@ -893,23 +918,114 @@
     gap: 4px;
 }
 
-.related-sub-meta {
+.related-genre {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0 0 8px 0;
+}
+
+.related-row-btm {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 11px;
-    color: #64748b;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.related-duration {
+    font-size: 13px;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
 }
 
 .mini-badge {
-    display: inline-block;
     background: #334155;
     color: white;
-    padding: 1px 4px;
-    border-radius: 3px;
-    font-size: 10px;
-    width: fit-content;
-    margin-top: 2px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.related-hover-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Chiều cao phủ lên phần text, hoặc phủ lên 1 phần ảnh nếu cần */
+    height: auto;
+    min-height: 80px;
+    /* Đủ chứa 2 nút */
+    padding: 15px 0;
+
+    /* Màu nền overlay (Lấy màu tím đậm của theme hoặc màu đen mờ) */
+    background: linear-gradient(to top, #03030A 90%, transparent);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+    /* Mặc định ẩn đi */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    /* Để không chắn click khi ẩn */
+}
+
+/* KHI HOVER VÀO CARD */
+.related-card:hover .related-hover-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Ẩn thông tin cũ khi hover (Optional - Nếu muốn overlay đè lên hoàn toàn) */
+.related-card:hover .related-info-normal {
+    opacity: 0;
+}
+
+/* --- BUTTON STYLES (GIỐNG ẢNH MẪU) --- */
+.btn-hover-book {
+    width: 90%;
+    background-color: #F3EA75;
+    /* Màu vàng chanh giống ảnh */
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-hover-book:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+}
+
+.btn-hover-trailer {
+    width: 90%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-hover-trailer:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Responsive */
