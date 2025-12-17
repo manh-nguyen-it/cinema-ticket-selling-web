@@ -1,0 +1,166 @@
+.loginContainer {
+    padding: 0px 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #2a0a3d, #120016);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== LEFT ===== */
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poster {
+    background: linear-gradient(135deg, #5b1b7a, #7a2fa0);
+    width: 80%;
+    height: 85%;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.posterTitle {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: cursive;
+    margin-bottom: 20px;
+}
+
+.poster p {
+    font-size: 18px;
+    margin: 4px 0;
+}
+
+.decor {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===== RIGHT ===== */
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 360px;
+}
+
+.logo {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ===== BUTTONS ===== */
+.googleBtn,
+.facebookBtn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.googleBtn {
+    background: #fff;
+    color: #000;
+}
+
+.facebookBtn {
+    background: #3b5998;
+    color: #fff;
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    position: relative;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* ===== INPUT ===== */
+.form input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    border: none;
+    background: #2a0a3d;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== EXTRA ===== */
+.forgot {
+    text-align: right;
+    font-size: 13px;
+    color: #c08cff;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.loginBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(to right, #a855f7, #7c3aed);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register span {
+    color: #c08cff;
+    cursor: pointer;
+}

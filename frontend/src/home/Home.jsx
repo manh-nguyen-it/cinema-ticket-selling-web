@@ -12,16 +12,16 @@ import ForFurther from './ForFurther.jsx'
 function Home() {
     return (
         <div>
-            <Header />
             <Banner />
-            <Films />
-            <Top10Films />
-            <PromotionSection />
-            <MoreInfo />
-            <CustomRating />
-            <FAQ />
-            <ForFurther />
-            <Footer />
+            <div style={{padding: '20px 30px'}}>
+                <Films />
+                <Top10Films />
+                <PromotionSection />
+                <MoreInfo />
+                <CustomRating />
+                <FAQ />
+                <ForFurther />
+            </div>
         </div>
     )
 }

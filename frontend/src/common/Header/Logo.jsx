@@ -4,7 +4,7 @@ function Logo() {
     return (
         <div className={style.logo}>
             <a href="">
-                <img src="/images/logo.png" />
+                <img width="100px" src="/images/logo.png" />
             </a>
         </div>
     )

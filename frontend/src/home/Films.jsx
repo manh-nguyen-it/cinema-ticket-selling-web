@@ -21,36 +21,33 @@ function Films() {
     }
 
     return (
-        <div style={{ padding: '20px 0px' }}>
-            {/* Header */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                padding: '0px 10px'
-            }}>
-                {/* Tabs */}
-                <div className={styles.tabsWrapper}>
-                    <div className={styles.tabs}>
-                        <div align="center"
-                            className={`${styles.tab} ${activeTab === 'now' ? styles.active : ''}`}
-                            onClick={() => handleChangeTab('now')}
-                        >
-                            Đang chiếu
-                        </div>
-
-                        <div align="center"
-                            className={`${styles.tab} ${activeTab === 'upcoming' ? styles.active : ''}`}
-                            onClick={() => handleChangeTab('upcoming')}
-                        >
-                            Sắp chiếu
-                        </div>
-                    </div>
-                </div>
-
-                <div style={{ cursor: 'pointer' }}>
-                    Xem tất cả &gt;
-                </div>
+        <div>
+            <div className={styles.header}>
+    {/* Tabs */}
+    <div className={styles.tabsWrapper}>
+        <div className={styles.tabs}>
+            <div
+                className={`${styles.tab} ${activeTab === 'now' ? styles.active : ''}`}
+                onClick={() => handleChangeTab('now')}
+            >
+                Đang chiếu
             </div>
+
+            <div
+                className={`${styles.tab} ${activeTab === 'upcoming' ? styles.active : ''}`}
+                onClick={() => handleChangeTab('upcoming')}
+            >
+                Sắp chiếu
+            </div>
+        </div>
+    </div>
+
+    {/* View all */}
+    <div className={styles.viewAll}>
+        Xem tất cả &gt;
+    </div>
+</div>
+
 
             {/* Nội dung */}
             <div className={styles.FilmCardGrid}>

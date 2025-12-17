@@ -1,4 +1,5 @@
 import styles from "./style.module.css";
+import { Link } from 'react-router-dom'
 
 function PromotionSection() {
   return (
@@ -9,6 +10,7 @@ function PromotionSection() {
       </div>
 
       <div className={styles.cards}>
+        <Link to="/promotion/1">
         <div style={{backgroundImage: 'url(/images/promo-background-1.png)'}} className={styles.card}>
           <div className={styles.overlay} />
           <div className={styles.promotionContent}>
@@ -17,7 +19,7 @@ function PromotionSection() {
             <button>Xem thông tin chi tiết →</button>
           </div>
         </div>
-
+        </Link>
         <div style={{backgroundImage: 'url(/images/promo-background-2.png)'}} className={styles.card}>
           <div className={styles.overlay} />
           <div className={styles.promotionContent}>
