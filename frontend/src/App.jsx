@@ -55,7 +55,6 @@ const App = () => {
                         <Route path="/dashboard" element={<DashboardPage />} />
                     </Route>
 
-                    {/* ===== ROUTE KHÔNG HEADER & FOOTER ===== */}
                     <Route element={<NoHeaderAndFooter />}>
                     <Route path="/quy-dinh-cua-rap" element={<CinemaRulesPage />} />
                         <Route path="/news" element={<News />}/>
