@@ -1,4 +1,5 @@
 import styles from "./MoreInfo.module.css";
+import { Link } from 'react-router-dom'
 
 const movies = [
   {
@@ -36,6 +37,8 @@ const movies = [
 export default function MoreInfo() {
   return (
     <section className={styles.wrapper}>
+      <div>
+        <Link to="/news/fast-and-furious">
       <div className={styles.main}>
         <h3 className={styles.title}>Tin mới hôm nay</h3>
 
@@ -53,6 +56,8 @@ export default function MoreInfo() {
             </div>
           ))}
         </div>
+      </div>
+      </Link>
       </div>
 
       <aside className={styles.sidebar}>

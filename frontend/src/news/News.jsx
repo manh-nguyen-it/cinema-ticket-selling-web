@@ -117,17 +117,17 @@ function News() {
               {
                 title:
                   'Quảng Trị, Huế, Đà Nẵng cảnh báo mưa rất to, cường độ lớn suốt một ngày',
-                image: '/images/vietnam-1.jpg'
+                image: '/images/life-news-1.png'
               },
               {
                 title:
                   'Đình Bắc lập cú đúp, U22 Việt Nam có chiến thắng nhọc nhằn trước U22 Lào',
-                image: '/images/vietnam-2.jpg'
+                image: '/images/life-news-2.png'
               },
               {
                 title:
                   'Dự báo mới về tăng trưởng GDP năm 2025 của Việt Nam',
-                image: '/images/vietnam-3.jpg'
+                image: '/images/life-news-3.png'
               }
             ]}
           />
@@ -139,17 +139,17 @@ function News() {
               {
                 title:
                   '"Cánh tay phải" của ông Zelensky nói gián khi bị ép từ chức - Kiev lệnh, chặn đường thoát thân',
-                image: '/images/world-1.jpg'
+                image: '/images/life-news-4.png'
               },
               {
                 title:
                   'Tổng thống Putin cảnh báo cứng rắn với các nước hậu thuẫn Ukraine sau vụ tấn công tàu dầu Nga',
-                image: '/images/world-2.jpg'
+                image: '/images/life-news-5.png'
               },
               {
                 title:
                   'Cư dân chạy vội sau vụ cháy chung cư ở Hong Kong',
-                image: '/images/world-3.jpg'
+                image: '/images/life-news-6.png'
               }
             ]}
           />
@@ -160,17 +160,17 @@ function News() {
             items={[
               {
                 title: 'Zootopia 2 đánh bại kỷ lục của Avatar 2',
-                image: '/images/recommend-1.jpg'
+                image: '/images/life-news-7.png'
               },
               {
                 title:
                   'Conan Movie 28: Dư Ảnh Của Độc Nhãn chính thức trở lại rạp Việt',
-                image: '/images/recommend-2.jpg'
+                image: '/images/life-news-8.png'
               },
               {
                 title:
                   '5 Centimet Trên Giây Chuẩn Bị Lên Sóng Với Bản Live-Action',
-                image: '/images/recommend-3.jpg'
+                image: '/images/life-news-9.png'
               }
             ]}
           />

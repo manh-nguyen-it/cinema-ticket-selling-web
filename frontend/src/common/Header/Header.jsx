@@ -15,9 +15,6 @@ function Header() {
                 <div class={`${styles.loginBtn}`}>
                     <Link to="/dang-nhap"><button class={styles.btn}>Đăng nhập</button></Link>
                 </div>
-                <div className={`${styles.registerBtn}`}>
-                    <Link to="/dang-ky"><button class={styles.btn}>Đăng ký</button></Link>
-                </div>
             </div>
         </div>
     )

@@ -53,7 +53,6 @@ export default function CustomRating() {
             <div className={styles.stars}>★★★★★</div>
             <p className={styles.text}>“{r.text}”</p>
             <div className={styles.user}>
-              <img src={r.avatar} alt={r.name} />
               <div>
                 <strong>{r.name}</strong>
                 <span>{r.role}</span>
