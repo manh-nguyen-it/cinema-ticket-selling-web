@@ -1,4 +1,5 @@
 import styles from './Login.module.css'
+import { Link } from 'react-router-dom'
 function Login() {
     return (
         <div className={styles.loginContainer}>
@@ -51,7 +52,7 @@ function Login() {
                     </button>
 
                     <p className={styles.register}>
-                        Không có tài khoản? <span>Đăng ký ngay</span>
+                        Không có tài khoản?<Link to="/dang-ky"><span> Đăng ký ngay</span></Link>
                     </p>
                 </div>
             </div>

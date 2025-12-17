@@ -1,4 +1,5 @@
 import styles from './Register.module.css'
+import { Link } from 'react-router-dom'
 
 function Register() {
     return (
@@ -54,7 +55,7 @@ function Register() {
                     </button>
 
                     <p className={styles.login}>
-                        Đã có tài khoản? <span>Đăng nhập ngay</span>
+                        Đã có tài khoản?<Link to="/dang-nhap"><span> Đăng nhập ngay</span></Link>
                     </p>
                 </div>
             </div>
