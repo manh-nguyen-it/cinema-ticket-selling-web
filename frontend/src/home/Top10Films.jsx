@@ -5,27 +5,73 @@ import Top10FilmCard from './Top10FilmCard.jsx'
 function Top10Films() {
     const films = [
   {
+    photo: '/images/top-film-1.jpg',
     title: 'Driving Madeleine',
     rating: 7.2,
-    genre: 'Hài, Kịch',
+    type: 'Hài, Kịch',
     duration: '1h 31m'
   },
   {
+    photo: '/images/top-film-2.jpg',
     title: 'Tempête',
     rating: 8.6,
-    genre: 'Kịch',
+    type: 'Kịch',
     duration: '1h 49m'
   },
   {
+    photo: '/images/top-film-3.png',
     title: 'Dragon',
     rating: 7.9,
-    genre: 'Hành động',
+    type: 'Hành động',
     duration: '2h 58m'
   },
   {
+    photo: '/images/top-film-4.jpg',
     title: 'CODA',
     rating: 8.9,
-    genre: 'Hài kịch, Nhân văn',
+    type: 'Hài kịch, Nhân văn',
+    duration: '1h 51m'
+  },
+  {
+    photo: '/images/top-film-4.jpg',
+    title: 'CODA',
+    rating: 8.9,
+    type: 'Hài kịch, Nhân văn',
+    duration: '1h 51m'
+  },
+  {
+    photo: '/images/top-film-4.jpg',
+    title: 'CODA',
+    rating: 8.9,
+    type: 'Hài kịch, Nhân văn',
+    duration: '1h 51m'
+  },
+  {
+    photo: '/images/top-film-4.jpg',
+    title: 'CODA',
+    rating: 8.9,
+    type: 'Hài kịch, Nhân văn',
+    duration: '1h 51m'
+  },
+  {
+    photo: '/images/top-film-4.jpg',
+    title: 'CODA',
+    rating: 8.9,
+    type: 'Hài kịch, Nhân văn',
+    duration: '1h 51m'
+  },
+  {
+    photo: '/images/top-film-4.jpg',
+    title: 'CODA',
+    rating: 8.9,
+    type: 'Hài kịch, Nhân văn',
+    duration: '1h 51m'
+  },
+  {
+    photo: '/images/top-film-4.jpg',
+    title: 'CODA',
+    rating: 8.9,
+    type: 'Hài kịch, Nhân văn',
     duration: '1h 51m'
   }
 ]
@@ -60,13 +106,7 @@ function Top10Films() {
                     ‹
                 </button>
                 <div className={styles.top10FilmGrid} ref={sliderRef}>
-                    {films.map(film => <Top10FilmCard film_info={film}/>)}
-                    <Top10FilmCard />
-                    <Top10FilmCard />
-                    <Top10FilmCard />
-                    <Top10FilmCard />
-                    <Top10FilmCard />
-                    <Top10FilmCard />
+                    {films.map(item => <Top10FilmCard film_info={item}/>)}
                 </div>
                 <button
                     className={`${styles.arrow} ${styles.right}`}
