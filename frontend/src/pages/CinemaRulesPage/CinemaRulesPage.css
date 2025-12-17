@@ -1,0 +1,171 @@
+/* Layout chung của trang */
+.rules-page {
+    background-color: #03030A;
+    /* Nền chính tối thẫm */
+    min-height: 100vh;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header giả lập */
+.rules-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.brand-news {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #8A66C3;
+}
+
+.brand-news span {
+    color: #E2E8F0;
+    font-weight: 300;
+}
+
+.search-bar-fake {
+    background: #333;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #999;
+    width: 300px;
+}
+
+/* Wrapper để căn giữa */
+.rules-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* --- [CONTAINER CHÍNH MÀU #1E0D28] --- */
+.rules-container {
+    background-color: #1E0D28;
+    /* MÀU NỀN YÊU CẦU */
+    padding: 60px 80px;
+    border-radius: 4px;
+    /* Bo góc nhẹ hoặc để vuông tùy thích */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Tiêu đề trang */
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.page-subtitle {
+    text-align: center;
+    font-style: italic;
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+/* --- NỘI DUNG QUY ĐỊNH --- */
+.rule-section {
+    margin-bottom: 30px;
+}
+
+/* Tiêu đề mục (1, 2, 3...) màu Vàng */
+.rule-heading {
+    color: #FFD660;
+    /* Màu vàng Gold */
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.rule-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #e2e8f0;
+}
+
+/* Danh sách */
+.rule-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.rule-list li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e2e8f0;
+    /* Màu chữ trắng xám nhẹ */
+}
+
+/* Bôi đậm các từ khóa đầu dòng */
+.rule-list li strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Sub-list (cho phần khung giờ) */
+.sub-list {
+    list-style-type: circle;
+    margin-top: 5px;
+    padding-left: 20px;
+    color: #cbd5e1;
+}
+
+/* --- NÚT QUAY LẠI --- */
+.btn-back-news {
+    background-color: #4a1d6e;
+    /* Tím đậm nút bấm */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+
+    /* Đặt nút bên trái */
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-back-news:hover {
+    background-color: #663399;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rules-container {
+        padding: 30px 20px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .rules-header-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-bar-fake {
+        width: 100%;
+    }
+}

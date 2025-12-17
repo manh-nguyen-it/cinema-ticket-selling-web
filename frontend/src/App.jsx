@@ -13,7 +13,13 @@ import PaymentSuccessPage from './pages/PaymentSuccessPage/PaymentSuccessPage';
 import SpecialCinemaPage from './pages/SpecialCinemaPage/SpecialCinemaPage';
 import CinemaSystemPage from './pages/CinemaSystemPage/CinemaSystemPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
-
+import CinemaRulesPage from './pages/CinemaRulesPage/CinemaRulesPage';
+import PriceSchedulePage from './pages/PriceSchedulePage/PriceSchedulePage';
+import BoxOfficePage from './pages/BoxOfficePage/BoxOfficePage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage/ResetPasswordPage';
 // Import component của BẠN KIA (Ví dụ Header - nếu cần)
 // import Header from './components/Header/Header'; 
 
@@ -53,7 +59,13 @@ const App = () => {
 
                     {/* Trang cá nhân */}
                     <Route path="/dashboard" element={<DashboardPage />} />
-
+                    <Route path="/quy-dinh" element={<CinemaRulesPage />} />
+                    <Route path="/gia-ve-lich-chieu" element={<PriceSchedulePage />} />
+                    <Route path="/bang-xep-hang" element={<BoxOfficePage />} />
+                    <Route path="/dang-nhap" element={<LoginPage />} />
+                    <Route path="/dang-ky" element={<RegisterPage />} />
+                    <Route path="/quen-mat-khau" element={<ForgotPasswordPage />} />
+                    <Route path="/tao-mat-khau-moi" element={<ResetPasswordPage />} />
                 </Routes>
             </div>
         </BrowserRouter>
