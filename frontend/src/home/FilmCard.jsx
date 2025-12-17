@@ -1,19 +1,25 @@
-import styles from './style.module.css'
+import styles from './FilmCard.module.css'
 
-function FilmCard() {
-    return (
-        <div style={{backgroundImage: 'url("./images/film-card-image.jpg")'}} class={styles.FilmCard}>
-            <div class={styles.layerOnFilmCard}></div>
-            <div class={styles.contentInFilmCard}>
-                <div>
-                    Avatar: Dòng Chảy Của Nước (3D)
-                </div>
-                <div style={{fontSize: '80%'}}>
-                    Hành động, Thám hiểm
-                </div>
-            </div>
-        </div>
-    )
+function FilmCard({ film }) {
+  return (
+    <div className={styles.card}>
+      <div
+        className={styles.poster}
+        style={{ backgroundImage: `url(${film.poster})` }}
+      >
+        {film.hasTrailer && (
+          <div className={styles.trailer}>
+            ▶ Xem Trailer
+          </div>
+        )}
+      </div>
+
+      <div className={styles.info}>
+        <h3 className={styles.title}>{film.title}</h3>
+        <p className={styles.genre}>{film.genre}</p>
+      </div>
+    </div>
+  )
 }
 
 export default FilmCard

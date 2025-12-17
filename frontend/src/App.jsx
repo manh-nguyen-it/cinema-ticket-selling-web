@@ -26,6 +26,7 @@ import Register from './register/Register.jsx'
 import MainLayout from './layout/MainLayout.jsx'
 import NoHeaderAndFooter from './layout/NoHeaderAndFooter.jsx'
 import News from './news/News.jsx'
+import SchedulePage from './pages/SchedulePage/SchedulePage.jsx'
 
 const App = () => {
     return (
@@ -53,6 +54,7 @@ const App = () => {
                         <Route path="/rap-dac-biet" element={<SpecialCinemaPage />} />
                         <Route path="/he-thong-rap" element={<CinemaSystemPage />} />
                         <Route path="/dashboard" element={<DashboardPage />} />
+                        <Route path="/lich-chieu" element={<SchedulePage />} />
                     </Route>
 
                     <Route element={<NoHeaderAndFooter />}>

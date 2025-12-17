@@ -1,5 +1,6 @@
 import styles from './style.module.css'
 import PromotionSection from '../home/PromotionSection.jsx'
+import { Link } from 'react-router-dom'
 
 function News() {
     const news = [
@@ -168,7 +169,7 @@ function Column({ title, items }) {
       </div>
 
       <button className={styles.backBtn}>
-        Trở về trang bán vé xem phim
+        <Link to="/">Trở về trang bán vé xem phim</Link>
       </button>
     </section>
         </div>
