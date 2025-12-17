@@ -68,7 +68,7 @@
     background-color: #334155;
     /* Mặc định xám */
     /* Border trùng màu nền để tạo khoảng hở cắt đường kẻ (giống ảnh mẫu) */
-    border: 4px solid var(--primary-bg);
+    border: 1px solid var(--primary-bg);
     box-sizing: content-box;
     transition: all 0.3s;
 }
@@ -84,7 +84,7 @@
 .step-item.completed .step-dot {
     background-color: var(--accent-yellow);
     /* Chấm vàng */
-    box-shadow: 0 0 10px rgba(255, 214, 96, 0.4);
+    /* box-shadow: 0 0 10px rgba(255, 214, 96, 0.4); */
     /* Glow nhẹ */
 }
 

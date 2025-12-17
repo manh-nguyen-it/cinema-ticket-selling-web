@@ -269,6 +269,7 @@
     align-items: center;
     gap: 50px;
     margin-bottom: 40px;
+    margin-top: 40px;
     flex-wrap: wrap;
 }
 
@@ -276,17 +277,17 @@
 .score-box-large {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     flex-shrink: 0;
 }
 
 .score-badge-large {
-    background: var(--accent-yellow);
+    background: #FCFC65;
     color: black;
     font-size: 28px;
     font-weight: 800;
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -297,6 +298,7 @@
     font-weight: bold;
     display: block;
     font-size: 18px;
+    margin-bottom: 8px;
 }
 
 .rating-count {
@@ -364,12 +366,12 @@
 }
 
 .review-card {
-    background: #240d30;
-    border-radius: 10px;
-    padding: 20px;
+    background: #141418;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 1px solid #25252C;
 }
 
 .review-top {
@@ -385,11 +387,11 @@
 }
 
 .user-score-box {
-    background: #eab308;
+    background: #FCFC65;
     color: black;
     font-weight: bold;
-    font-size: 14px;
-    padding: 2px 6px;
+    font-size: 16px;
+    padding: 6px 6px;
     border-radius: 4px;
     min-width: 30px;
     text-align: center;

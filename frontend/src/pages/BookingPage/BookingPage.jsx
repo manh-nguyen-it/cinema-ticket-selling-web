@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MOCK_MOVIE_DETAIL, MOCK_CINEMAS } from '../../utils/mockData';
+import {
+    FaMapMarkerAlt,
+    FaMapPin
+} from "react-icons/fa";
 import TicketModal from '../../components/TicketModal/TicketModal';
 import './BookingPage.css';
 
@@ -107,7 +111,7 @@ const BookingPage = () => {
                                     <h3 className="cinema-name">{cinema.name}</h3>
                                     <span className="cinema-dist">{cinema.distance}</span>
                                 </div>
-                                <p className="cinema-address">📍 {cinema.address}</p>
+                                <p className="cinema-address"><FaMapMarkerAlt size={20} />   {cinema.address}</p>
 
                                 {/* Danh sách giờ chiếu */}
                                 {cinema.formats.map((fmt, fIdx) => (

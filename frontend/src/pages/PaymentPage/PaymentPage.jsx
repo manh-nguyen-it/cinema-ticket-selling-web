@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BookingProgressBar from '../../components/BookingProgressBar/BookingProgressBar';
-import { MOCK_FOODS, MOCK_TICKET_TYPES } from '../../utils/mockData'; // Import để lấy tên món ăn/loại vé
+import { MOCK_FOODS, MOCK_TICKET_TYPES } from '../../utils/mockData';
 import { FaApple, FaGoogle, FaPaypal, FaBitcoin, FaCreditCard } from "react-icons/fa";
 import './PaymentPage.css';
 
@@ -9,7 +9,6 @@ const PaymentPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Lấy dữ liệu từ các bước trước
     const {
         quantities, movieInfo, time, selectedSeats,
         foodCart, totalPriceSeats
@@ -22,20 +21,17 @@ const PaymentPage = () => {
     if (!movieInfo) return null;
 
     // --- TÍNH TOÁN CHI PHÍ ---
-    // 1. Tính tiền đồ ăn
     const totalFoodPrice = Object.keys(foodCart || {}).reduce((acc, foodId) => {
         const item = MOCK_FOODS.find(f => f.id === foodId);
         return acc + (item ? item.price * foodCart[foodId] : 0);
     }, 0);
 
-    // 2. Phí dịch vụ & Thuế (Giả lập theo ảnh mẫu)
-    const SERVICE_FEE = 2.65;
-    const TAX = 1.89;
+    // [EDIT] Cập nhật phí dịch vụ sang VND cho hợp lý
+    const SERVICE_FEE = 15000;
+    const TAX = 10000;
 
-    // 3. Tổng cuối cùng
     const finalTotal = totalPriceSeats + totalFoodPrice + SERVICE_FEE + TAX;
 
-    // --- STATE FORM ---
     const PAYMENT_METHODS = [
         { id: 'apple', label: 'Apple Pay', icon: <FaApple size={20} /> },
         { id: 'google', label: 'Google Pay', icon: <FaGoogle size={20} /> },
@@ -44,39 +40,26 @@ const PaymentPage = () => {
         { id: 'card', label: 'Debit or Credit card', icon: <FaCreditCard size={20} /> }
     ];
 
-    const [paymentMethod, setPaymentMethod] = useState('card'); // Mặc định chọn Card
+    const [paymentMethod, setPaymentMethod] = useState('card');
+
     const handlePayment = () => {
-        // 1. Giả lập xử lý thanh toán (ví dụ hiện loading 1-2s)
-        // alert('Đang xử lý thanh toán...'); // Có thể bỏ alert cho mượt
-
-        // 2. Tạo một mã đặt vé giả lập
         const fakeBookingId = "BK" + Math.floor(100000 + Math.random() * 900000);
-
-        // 3. Chuyển hướng sang trang thành công KÈM TOÀN BỘ DỮ LIỆU
         navigate('/thanh-toan-thanh-cong', {
             state: {
-                // Truyền lại các thông tin cần hiển thị trên vé
-                quantities,
-                movieInfo,
-                time,
-                selectedSeats,
-                foodCart,
-                finalTotal: finalTotal.toFixed(2), // Truyền tổng tiền đã tính
-                bookingId: fakeBookingId, // Truyền mã đặt vé mới tạo
-                paymentMethod: paymentMethod // Truyền phương thức đã dùng (nếu cần hiển thị)
+                quantities, movieInfo, time, selectedSeats, foodCart,
+                finalTotal: finalTotal, // Truyền số chưa format
+                bookingId: fakeBookingId,
+                paymentMethod: paymentMethod
             }
         });
     };
-
-    if (!movieInfo) return null;
 
     return (
         <div className="payment-page">
             <div className="page-bg" style={{ backgroundImage: `url(${movieInfo.photo_link})` }}></div>
 
             <div className="payment-container">
-
-                {/* --- CỘT TRÁI: THÔNG TIN PHIM (Sidebar dùng chung) --- */}
+                {/* --- CỘT TRÁI --- */}
                 <div className="sidebar-info">
                     <div className="sidebar-poster">
                         <img src={movieInfo.photo_link} alt={movieInfo.name} />
@@ -96,34 +79,19 @@ const PaymentPage = () => {
 
                 {/* --- MAIN CONTENT --- */}
                 <div className="main-payment-area">
-
-                    {/* Step 3 Active */}
                     <BookingProgressBar currentStep={2} />
 
                     <div className="payment-content-wrapper">
-
                         {/* --- GIỮA: FORM THANH TOÁN --- */}
                         <div className="payment-form-section">
                             <h3 className="section-title">Phương thức thanh toán</h3>
-
-                            {/* Render danh sách Radio Button */}
                             <div className="payment-methods-list">
                                 {PAYMENT_METHODS.map((method) => {
                                     const isSelected = paymentMethod === method.id;
                                     return (
-                                        <label
-                                            key={method.id}
-                                            className={`method-option ${isSelected ? 'selected-method' : ''}`}
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="payment"
-                                                value={method.id}
-                                                checked={isSelected}
-                                                onChange={() => setPaymentMethod(method.id)}
-                                            />
+                                        <label key={method.id} className={`method-option ${isSelected ? 'selected-method' : ''}`}>
+                                            <input type="radio" name="payment" value={method.id} checked={isSelected} onChange={() => setPaymentMethod(method.id)} />
                                             <span className="radio-label">
-                                                {/* Icon trang trí nếu thích */}
                                                 <span style={{ marginRight: 8, opacity: isSelected ? 1 : 0.5 }}>{method.icon}</span>
                                                 {method.label}
                                             </span>
@@ -132,10 +100,7 @@ const PaymentPage = () => {
                                 })}
                             </div>
 
-                            {/* --- NỘI DUNG THAY ĐỔI THEO LỰA CHỌN --- */}
                             <div className="payment-method-content">
-
-                                {/* TRƯỜNG HỢP 1: THẺ (Hiện Form) */}
                                 {paymentMethod === 'card' && (
                                     <div className="card-input-container fade-in">
                                         <div className="input-group">
@@ -146,69 +111,45 @@ const PaymentPage = () => {
                                             </div>
                                         </div>
                                         <div className="row-inputs">
-                                            <div className="input-group">
-                                                <label>Exp. Month</label>
-                                                <input type="text" placeholder="12" />
-                                            </div>
-                                            <div className="input-group">
-                                                <label>Exp. Year</label>
-                                                <input type="text" placeholder="2025" />
-                                            </div>
+                                            <div className="input-group"><label>Exp. Month</label><input type="text" placeholder="12" /></div>
+                                            <div className="input-group"><label>Exp. Year</label><input type="text" placeholder="2025" /></div>
                                         </div>
                                         <div className="row-inputs">
-                                            <div className="input-group">
-                                                <label>CVV2</label>
-                                                <input type="password" placeholder="***" />
-                                            </div>
-                                            <div className="input-group">
-                                                <label>Zip Code</label>
-                                                <input type="text" placeholder="70000" />
-                                            </div>
+                                            <div className="input-group"><label>CVV2</label><input type="password" placeholder="***" /></div>
+                                            <div className="input-group"><label>Zip Code</label><input type="text" placeholder="70000" /></div>
                                         </div>
                                     </div>
                                 )}
-
-                                {/* TRƯỜNG HỢP 2: CÁC VÍ ĐIỆN TỬ KHÁC (Hiện Thông báo) */}
                                 {paymentMethod !== 'card' && (
                                     <div className="wallet-info-box fade-in">
-                                        <p>
-                                            Bạn đã chọn thanh toán qua <strong style={{ color: 'var(--accent-yellow)', textTransform: 'capitalize' }}>{paymentMethod}</strong>.
-                                        </p>
-                                        <p className="sub-text">
-                                            Sau khi nhấn "Thanh Toán Ngay", bạn sẽ được chuyển hướng an toàn đến trang đối tác để hoàn tất giao dịch.
-                                        </p>
+                                        <p>Bạn đã chọn thanh toán qua <strong style={{ color: 'var(--accent-yellow)', textTransform: 'capitalize' }}>{paymentMethod}</strong>.</p>
+                                        <p className="sub-text">Sau khi nhấn "Thanh Toán Ngay", bạn sẽ được chuyển hướng an toàn đến trang đối tác.</p>
                                     </div>
                                 )}
-
                             </div>
                         </div>
 
-                        {/* --- PHẢI: SUMMARY (TÓM TẮT ĐƠN) --- */}
+                        {/* --- PHẢI: SUMMARY --- */}
                         <div className="order-summary-section">
                             <h3 className="summary-title">Thông tin đặt vé</h3>
-
                             <div className="summary-group">
                                 <div className="summary-header">Vé</div>
-
-                                {/* Render từng loại vé */}
                                 {MOCK_TICKET_TYPES.map(type => {
                                     const qty = quantities[type.id];
                                     if (!qty) return null;
                                     return (
                                         <div key={type.id} className="summary-row">
                                             <span>{type.name} (x{qty}) :</span>
-                                            <span>${(type.price * qty).toFixed(2)}</span>
+                                            {/* [EDIT] Hiển thị VND */}
+                                            <span>{(type.price * qty).toLocaleString()} đ</span>
                                         </div>
                                     );
                                 })}
                             </div>
-
                             <div className="summary-row">
                                 <span>Ghế đã chọn:</span>
                                 <span style={{ color: 'white', fontWeight: 'bold' }}>{selectedSeats?.join(", ")}</span>
                             </div>
-
-                            {/* Render đồ ăn */}
                             {totalFoodPrice > 0 && (
                                 <div className="summary-group">
                                     <div className="summary-header">Đồ ăn và thức uống</div>
@@ -219,44 +160,35 @@ const PaymentPage = () => {
                                         return (
                                             <div key={fid} className="summary-row">
                                                 <span>{foodItem.name} (x{qty})</span>
-                                                {/* <span>${(foodItem.price * qty).toFixed(2)}</span> */}
                                             </div>
                                         );
                                     })}
                                     <div className="summary-row total-sub">
                                         <span>Tổng đồ ăn:</span>
-                                        <span>${totalFoodPrice.toFixed(2)}</span>
+                                        {/* [EDIT] Hiển thị VND */}
+                                        <span>{totalFoodPrice.toLocaleString()} đ</span>
                                     </div>
                                 </div>
                             )}
 
                             <div className="divider-line"></div>
 
-                            <div className="summary-row">
-                                <span>Phí dịch vụ:</span>
-                                <span>${SERVICE_FEE}</span>
-                            </div>
-                            <div className="summary-row">
-                                <span>Thuế:</span>
-                                <span>${TAX}</span>
-                            </div>
+                            {/* [EDIT] Hiển thị VND */}
+                            <div className="summary-row"><span>Phí dịch vụ:</span><span>{SERVICE_FEE.toLocaleString()} đ</span></div>
+                            <div className="summary-row"><span>Thuế:</span><span>{TAX.toLocaleString()} đ</span></div>
 
                             <div className="summary-total">
                                 <span>TỔNG TIỀN</span>
-                                <span className="total-highlight">${finalTotal.toFixed(2)}</span>
+                                {/* [EDIT] Hiển thị VND */}
+                                <span className="total-highlight">{finalTotal.toLocaleString()} đ</span>
                             </div>
 
-                            {/* Nút thanh toán cuối cùng */}
-                            <button className="btn-pay-now" onClick={handlePayment}>
-                                Thanh Toán Ngay
-                            </button>
+                            <button className="btn-pay-now" onClick={handlePayment}>Thanh Toán Ngay</button>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-
 export default PaymentPage;
