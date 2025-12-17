@@ -27,6 +27,7 @@ import MainLayout from './layout/MainLayout.jsx'
 import NoHeaderAndFooter from './layout/NoHeaderAndFooter.jsx'
 import News from './news/News.jsx'
 import SchedulePage from './pages/SchedulePage/SchedulePage.jsx'
+import NewsDetail from './news/NewsDetail';
 
 const App = () => {
     return (
@@ -55,12 +56,13 @@ const App = () => {
                         <Route path="/he-thong-rap" element={<CinemaSystemPage />} />
                         <Route path="/dashboard" element={<DashboardPage />} />
                         <Route path="/lich-chieu" element={<SchedulePage />} />
-                        <Route path="/chi-tiet-phim" element={<MovieDetail/>} />
+                        <Route path="/chi-tiet-phim" element={<MovieDetail />} />
                     </Route>
 
                     <Route element={<NoHeaderAndFooter />}>
                         <Route path="/quy-dinh-cua-rap" element={<CinemaRulesPage />} />
                         <Route path="/news" element={<News />} />
+                        <Route path="/news/fast-and-furious" element={<NewsDetail />} />
                         <Route path="/dang-nhap" element={<Login />} />
                         <Route path="/dang-ky" element={<Register />} />
                     </Route>

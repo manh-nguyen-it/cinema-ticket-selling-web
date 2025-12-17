@@ -18,9 +18,9 @@ export default function GSl() {
 
         {/* Posters */}
         <div className={styles.posters}>
-          <img src="/images/poster-1.jpg" alt="Poster 1" />
-          <img src="/images/poster-2.jpg" alt="Poster 2" />
-          <img src="/images/poster-3.jpg" alt="Poster 3" />
+          <img src="/images/poster-1.png" alt="Poster 1" />
+          <img src="/images/poster-2.png" alt="Poster 2" />
+          <img src="/images/poster-3.png" alt="Poster 3" />
         </div>
 
         {/* Promotion */}

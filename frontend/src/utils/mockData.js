@@ -572,7 +572,7 @@ export const MOCK_MOVIE_DETAIL = {
   name: "Avatar: Dòng Chảy Của Nước (3D)",
   photo_link: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
   trailer_video_link: "https://www.youtube.com/embed/o5F8MOz_IDw",
-  description: "Jake Sully sống với gia đình mới quen của mình được hình thành trên mặt trăng ngoài hệ mặt trời Pandora. Khi một mối đe dọa quen thuộc quay trở lại để hoàn thành những gì đã bắt đầu trước đó, Jake phải làm việc với Neytiri và quân đội của chủng tộc Na'vi để bảo vệ hành tinh của họ.",
+  description: "Avatar 2: Dòng Chảy Của Nước (Avatar 2) là bộ phim tiếp theo của loạt phim nổi tiếng Avatar do đạo diễn James Cameron thực hiện. Phim kể về cuộc phiêu lưu mới của Jake Sully và Neytiri trên mặt trăng Pandora, khi họ phải đối mặt với những nguy hiểm mới và cũ từ quá khứ. Trong phần này, tình yêu của Jake và Neytiri sẽ được thử thách khi họ phải chiến đấu để bảo vệ ngôi nhà của các dân tộc Navi khỏi sự xâm lăng của con người. Sự tái xuất của Sigourney Weaver trong vai nhà khoa học Grace Augustine cũng tạo ra sự kết nối giữa hai phần của loạt phim Avatar. Với câu chuyện hấp dẫn và dàn diễn viên tài năng, Avatar 2: Dòng Chảy Của Nước hứa hẹn sẽ mang lại những trải nghiệm thú vị cho khán giả yêu thích thể loại Hành Động và Phiêu Lưu. Đây chắc chắn là một bộ phim đáng xem khi ra mắt.",
   period: 192,
   age: 13,
   release_date: "16/12/2022",
@@ -581,12 +581,12 @@ export const MOCK_MOVIE_DETAIL = {
   genre_name: "Hành động, Viễn tưởng, Phiêu lưu",
 
   cast: [
-    { name: "Sam Worthington", img: "https://image.tmdb.org/t/p/w200/vM1WfcYjPP8MubnbkkPTqJQD1U7.jpg" },
-    { name: "Zoe Saldaña", img: "https://image.tmdb.org/t/p/w200/iOVbFW20il66X8ictfQt8365wEl.jpg" },
-    { name: "Sigourney Weaver", img: "https://image.tmdb.org/t/p/w200/flfhep27CVxgjyFj1f79xNQJTPs.jpg" },
-    { name: "Stephen Lang", img: "https://image.tmdb.org/t/p/w200/n71JebqV0W5kY5F7sNFFX786cT.jpg" },
+    { name: "Sam Worthington", img: "https://media.themoviedb.org/t/p/w600_and_h900_face/mflBcox36s9ZPbsZPVOuhf6axaJ.jpg" },
+    { name: "Zoe Saldaña", img: "https://media.themoviedb.org/t/p/w600_and_h900_face/vQBwmsSOAd0JDaEcZ5p43J9xzsY.jpg" },
+    { name: "Sigourney Weaver", img: "https://media.themoviedb.org/t/p/w600_and_h900_face/wTSnfktNBLd6kwQxgvkqYw6vEon.jpg" },
+    { name: "Stephen Lang", img: "https://media.themoviedb.org/t/p/w600_and_h900_face/hdRiM73H2mpJws559TWHCAia7qJ.jpg" },
     { name: "Kate Winslet", img: "https://image.tmdb.org/t/p/w200/e3tdop3WhseRnn8KwMVLAV25Ybv.jpg" },
-    { name: "Cliff Curtis", img: "https://image.tmdb.org/t/p/w200/wKeWvN7eD0b7n5zW6uW3.jpg" }
+    { name: "Cliff Curtis", img: "https://media.themoviedb.org/t/p/w600_and_h900_face/3D6qz8vL6DWHAO3HeXeaSuwxq3s.jpg" }
   ],
 
   average_score: 9.0,
@@ -635,9 +635,9 @@ export const MOCK_CINEMAS = [
 ];
 
 export const MOCK_TICKET_TYPES = [
-  { id: "adult", name: "Người Lớn", price: 19.07 },
-  { id: "student", name: "U20", price: 16.95 },
-  { id: "child", name: "Trẻ Em", price: 12.07 }
+  { id: "adult", name: "Người Lớn", price: 110000 },
+  { id: "student", name: "HSSV / U22", price: 85000 },
+  { id: "child", name: "Trẻ Em", price: 65000 }
 ];
 export const MOCK_SEAT_MAP = [
   { row: "A", seats: [1, 2, 3, 4, null, 5, 6, 7, 8, null, 9, 10, 11, 12] },
@@ -655,28 +655,52 @@ export const BOOKED_SEATS = ["D5", "D6", "E7", "E8", "F10", "G2"];
 
 export const MOCK_FOODS = [
   {
-    id: "f1", name: "Bắp Rang Bơ", description: "Bắp rang bơ thơm ngon, giòn rụm",
-    price: 7.00, img: "https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=300&q=80"
+    id: "f1",
+    name: "Combo Solo (1 Người)",
+    description: "1 Bắp (Vừa) + 1 Coca-Cola (Lớn)",
+    price: 89000,
+    // Ảnh Combo
+    img: "https://images.unsplash.com/photo-1585647347483-22b66260dfff?auto=format&fit=crop&w=500&q=80"
   },
   {
-    id: "f2", name: "Combo Burger", description: "1 Burger Bò + 1 Khoai tây chiên",
-    price: 9.50, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80"
+    id: "f2",
+    name: "Combo Couple (2 Người)",
+    description: "1 Bắp (Lớn) + 2 Pepsi (Lớn) - Tiết kiệm 15%",
+    price: 159000,
+    // Ảnh Combo đôi
+    img: "https://images.unsplash.com/photo-1572177191856-3cde618dee1f?auto=format&fit=crop&w=500&q=80"
   },
   {
-    id: "f3", name: "Coca Cola", description: "Nước ngọt có ga mát lạnh (L)",
-    price: 3.50, img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&q=80"
+    id: "f3",
+    name: "Bắp Vị Phô Mai (Lớn)",
+    description: "Bắp nấm lắc phô mai đậm đà, giòn tan",
+    price: 79000,
+    // Ảnh Bắp
+    img: "https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=500&q=80"
   },
   {
-    id: "f4", name: "Hot Dog", description: "Xúc xích nướng kèm mù tạt",
-    price: 4.20, img: "https://images.unsplash.com/photo-1612392062122-8d8b9f12630e?auto=format&fit=crop&w=300&q=80"
+    id: "f4",
+    name: "Bắp Vị Caramel (Lớn)",
+    description: "Bắp nấm phủ sốt Caramel ngọt ngào",
+    price: 79000,
+    // Ảnh Bắp Caramel
+    img: "https://plus.unsplash.com/premium_photo-1676049461949-185dcea09d77?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    id: "f5", name: "Khoai Tây Chiên", description: "Khoai tây chiên giòn tan",
-    price: 3.00, img: "https://images.unsplash.com/photo-1573080496987-a199f8cd75ec?auto=format&fit=crop&w=300&q=80"
+    id: "f5",
+    name: "Coca-Cola (L)",
+    description: "Ly lớn 32oz, sảng khoái tột đỉnh",
+    price: 45000,
+    // Ảnh Coca
+    img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=80"
   },
   {
-    id: "f6", name: "Trà Đào Cam Sả", description: "Thanh mát, giải nhiệt",
-    price: 5.50, img: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=300&q=80"
+    id: "f6",
+    name: "Pepsi (L)",
+    description: "Ly lớn 32oz, mát lạnh đã khát",
+    price: 45000,
+    // Ảnh Pepsi (Dùng ảnh nước ngọt có ga tương tự)
+    img: "https://plus.unsplash.com/premium_photo-1725075086631-b21a5642918b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 // src/utils/mockData.js
