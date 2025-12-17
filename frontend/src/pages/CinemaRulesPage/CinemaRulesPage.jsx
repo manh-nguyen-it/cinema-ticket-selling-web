@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import './CinemaRulesPage.css';
 
@@ -84,8 +84,8 @@ const CinemaRulesPage = () => {
                 </div>
 
                 {/* Nút quay lại */}
-                <button className="btn-back-news" onClick={() => navigate('/')}>
-                    Trở về trang tin tức
+                <button className="btn-back-news">
+                    <Link to="/news">Trở về trang tin tức</Link>
                 </button>
 
             </div>

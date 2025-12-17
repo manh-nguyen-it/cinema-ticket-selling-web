@@ -33,6 +33,7 @@
     border: 1px solid #38134e;
     border-radius: 10px;
     margin-right: 10px;
+    width: 150px;
 }
 
 .loginBtn button {

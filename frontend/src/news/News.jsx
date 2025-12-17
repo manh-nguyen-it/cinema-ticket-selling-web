@@ -1,5 +1,6 @@
 import styles from './style.module.css'
 import PromotionSection from '../home/PromotionSection.jsx'
+import { Link } from 'react-router-dom'
 
 function News() {
     const news = [
@@ -52,7 +53,6 @@ function Column({ title, items }) {
           {item.image && (
             <img
               src={item.image}
-              alt={item.title}
               className={styles.itemImage}
             />
           )}
@@ -87,7 +87,7 @@ function Column({ title, items }) {
           <div
             key={item.id}
             className={`${styles.card} ${item.large ? styles.large : ''}`}
-            style={{ backgroundImage: `url(${item.image})` }}
+            style={{ backgroundImage: '' }}
           >
             <div className={styles.overlay}>
               <h3 className={styles.title}>{item.title}</h3>
@@ -168,7 +168,7 @@ function Column({ title, items }) {
       </div>
 
       <button className={styles.backBtn}>
-        Trở về trang bán vé xem phim
+        <Link to="/">Trở về trang bán vé xem phim</Link>
       </button>
     </section>
         </div>
