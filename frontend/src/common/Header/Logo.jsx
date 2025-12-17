@@ -2,8 +2,10 @@ import style from './style.module.css'
 
 function Logo() {
     return (
-        <div className={`${style.logo} ${style.topLevelHeaderItem}`}>
-            <a href=""><div style={{fontSize: "200%"}}>Logo</div></a>
+        <div className={style.logo}>
+            <a href="">
+                <img src="/images/logo.png" />
+            </a>
         </div>
     )
 }

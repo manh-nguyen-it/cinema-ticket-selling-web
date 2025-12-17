@@ -1,6 +1,6 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './style.css'
 
 // Import các trang của BẠN
 import MoviesPage from './pages/MoviesPage/MoviesPage';
@@ -20,15 +20,13 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage/ResetPasswordPage';
+import Home from './home/Home.jsx'
 // Import component của BẠN KIA (Ví dụ Header - nếu cần)
 // import Header from './components/Header/Header'; 
 
 const App = () => {
     return (
         <BrowserRouter>
-            {/* Nếu muốn Header hiển thị ở mọi trang, đặt nó ở đây */}
-            {/* <Header /> */}
-
             <div className="app-container">
                 <Routes>
                     {/* --- ROUTE CỦA BẠN KIA (Ví dụ) --- */}
@@ -37,7 +35,7 @@ const App = () => {
                     {/* --- CÁC ROUTE CỦA BẠN --- */}
 
                     {/* Điều hướng mặc định */}
-                    <Route path="/" element={<Navigate to="/phim-dang-chieu" />} />
+                    <Route path="/" element={<Home />} />
 
                     {/* Danh sách phim */}
                     <Route path="/phim-dang-chieu" element={<MoviesPage status="NOW" />} />

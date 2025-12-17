@@ -1,6 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #222222;
-    color: #ffffff;
+    font-family: Arial;
+    color: #fff;
+    background-color: #15061e;
     margin: 0px;
     padding: 0px;
 }
@@ -8,15 +13,4 @@ body {
 a {
     text-decoration: none;
     color: #ffffff;
-}
-
-.site-map {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px;
-}
-
-.site-map a {
-    color: #000000;
-    text-decoration: underline;
 }

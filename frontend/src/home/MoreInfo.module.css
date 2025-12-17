@@ -1,0 +1,113 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1.2fr;
+  gap: 32px;
+  padding: 32px;
+  color: #eaeaea;
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #14001f;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.cardBig {
+  grid-row: span 2;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.cardBig img {
+  height: 100%;
+}
+
+.cardContent {
+  padding: 14px;
+}
+
+.cardContent h4 {
+  font-size: 15px;
+}
+
+.cardContent span {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.cardContent p {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box {
+  background: #14001f;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.box h4 {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.movie {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.box label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.voteList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.voteList li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
