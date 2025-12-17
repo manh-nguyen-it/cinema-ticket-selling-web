@@ -13,10 +13,10 @@ function Header() {
                     <input type="text" placeholder="Tìm phim"/>
                 </div>
                 <div class={`${styles.loginBtn}`}>
-                    <Link to="/login"><button class={styles.btn}>Đăng nhập</button></Link>
+                    <Link to="/dang-nhap"><button class={styles.btn}>Đăng nhập</button></Link>
                 </div>
                 <div className={`${styles.registerBtn}`}>
-                    <Link to="/register"><button class={styles.btn}>Đăng ký</button></Link>
+                    <Link to="/dang-ky"><button class={styles.btn}>Đăng ký</button></Link>
                 </div>
             </div>
         </div>

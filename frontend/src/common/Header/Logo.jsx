@@ -1,11 +1,12 @@
 import style from './style.module.css'
+import { Link } from 'react-router-dom'
 
 function Logo() {
     return (
         <div className={style.logo}>
-            <a href="">
+            <Link to="/">
                 <img width="100px" src="/images/logo.png" />
-            </a>
+            </Link>
         </div>
     )
 }

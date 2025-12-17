@@ -1,0 +1,122 @@
+/* Layout chung (Giữ nguyên) */
+.box-office-page {
+    background-color: #03030A;
+    /* Nền tối của trang web */
+    min-height: 100vh;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header (Giữ nguyên) */
+.bo-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.brand-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8A66C3;
+}
+
+.brand-logo span {
+    color: #E2E8F0;
+    font-weight: 300;
+}
+
+.search-bar {
+    background: #333;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    width: 100%;
+}
+
+.search-icon {
+    color: #999;
+}
+
+/* Wrapper (Giữ nguyên) */
+.bo-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Căn giữa nội dung */
+}
+
+/* --- CONTAINER CHỨA ẢNH --- */
+.bo-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Style cho bức ảnh lớn */
+.ranking-full-img {
+    width: 100%;
+    max-width: 1000px;
+    /* Giới hạn chiều rộng tối đa để không bị quá to trên màn hình lớn */
+    height: auto;
+    /* Chiều cao tự động theo tỉ lệ ảnh */
+    border-radius: 12px;
+    /* Bo góc nhẹ cho ảnh đẹp hơn */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Tạo bóng đổ để ảnh nổi lên */
+    object-fit: contain;
+}
+
+/* Nút Back (Giữ nguyên) */
+.btn-back-home {
+    background-color: #4a1d6e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: flex-start;
+    /* Nút nằm bên trái */
+}
+
+.btn-back-home:hover {
+    background-color: #663399;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bo-header-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .btn-back-home {
+        align-self: center;
+    }
+
+    /* Mobile thì căn giữa nút back */
+}

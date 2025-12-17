@@ -18,10 +18,9 @@ function Navigation() {
     return (
         <ul className={style.navigation}>
             <li>
-                <NavLink to="/" end
-                    className={({ isActive }) => isActive ? style.active : undefined}
-                >
-                    Trang chủ
+                <NavLink to="/" className={({ isActive }) => isActive ? style.active : undefined}>
+                    <span>
+                    Trang chủ</span>
                 </NavLink>
             </li>
 
@@ -78,7 +77,7 @@ function Navigation() {
                 </span>
                 <ul className={style.dropdownMenu}>
                     <li>
-                        <NavLink to="/cultureplex"
+                        <NavLink to="/quy-dinh-cua-rap"
                             className={({ isActive }) => isActive ? style.active : undefined}
                         >
                             Quy định của rạp

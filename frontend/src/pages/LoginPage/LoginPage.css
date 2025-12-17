@@ -1,0 +1,248 @@
+/* Layout toàn trang */
+.login-page {
+    background-color: #03030A;
+    /* Nền tối đồng bộ với hệ thống */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+
+/* Container chính */
+.login-container {
+    display: flex;
+    background-color: #0B0B15;
+    /* Nền container hơi sáng hơn nền web chút xíu */
+    width: 100%;
+    max-width: 1100px;
+    height: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --- CỘT TRÁI (ẢNH) --- */
+.login-left {
+    flex: 1;
+    background-color: #1E0D28;
+    position: relative;
+}
+
+.login-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Đảm bảo ảnh phủ kín không bị méo */
+}
+
+.login-brand-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Khoảng cách với tiêu đề "Chào mừng..." */
+}
+
+.login-brand-logo img {
+    height: 50px;
+    /* Điều chỉnh chiều cao logo tùy ý */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Điều chỉnh lại padding của cột phải một chút để cân đối */
+.login-right {
+    flex: 1;
+    padding: 40px 60px;
+    /* Giảm padding trên dưới chút xíu vì đã thêm logo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #03030A;
+}
+
+.login-title {
+    color: #FFFFFF;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Nút Social */
+.social-login-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #2B2B38;
+    /* Nền nút social tối */
+    border: 1px solid #3C3C48;
+    color: #FFFFFF;
+    padding: 12px;
+    border-radius: 30px;
+    /* Bo tròn nhiều như mẫu */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.social-btn:hover {
+    background-color: #383848;
+}
+
+.google-icon {
+    color: #EA4335;
+}
+
+/* Màu Google */
+.fb-icon {
+    color: #1877F2;
+}
+
+/* Màu Facebook */
+
+/* Divider "Hoặc đăng nhập với" */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #334155;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #E2E8F0;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #1A1A24;
+    /* Nền input tối */
+    border: 1px solid #333340;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    /* Quan trọng để padding ko làm vỡ layout */
+}
+
+input:focus {
+    border-color: #A650E3;
+}
+
+/* PLACEHOLDER MÀU #5A5A5A (5A5A5) */
+::placeholder {
+    color: #5A5A5A;
+    opacity: 1;
+}
+
+/* Password Toggle */
+.password-input-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+/* Link & Button */
+.forgot-password-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.link-text {
+    color: #A650E3;
+    /* MÀU LINK YÊU CẦU */
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.link-text:hover {
+    text-decoration: underline;
+    color: #bf7bf5;
+}
+
+.btn-login-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: #451662;
+    /* MÀU NÚT YÊU CẦU */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-login-submit:hover {
+    background-color: #59227A;
+    transform: translateY(-1px);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+        max-width: 500px;
+    }
+
+    .login-left {
+        display: none;
+        /* Ẩn ảnh trên mobile */
+    }
+
+    .login-right {
+        padding: 40px 30px;
+    }
+}

@@ -420,3 +420,27 @@ export const MOCK_RELATED_MOVIES = [
     ageRating: "PG-13"
   }
 ];
+// --- BOX OFFICE RANKING (BẢNG XẾP HẠNG) ---
+export const MOCK_RANKINGS = [
+  {
+    rank: 1,
+    title: "Avatar: The Way of Water",
+    poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80", // Ảnh Avatar giả lập
+    revenue: "1.71 BILLION USD",
+    isCenter: true // Cờ đánh dấu vị trí trung tâm
+  },
+  {
+    rank: 2,
+    title: "Ant-Man and the Wasp: Quantumania",
+    poster: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=400&q=80", // Ảnh Antman giả lập
+    revenue: "700 MILLION USD",
+    isCenter: false
+  },
+  {
+    rank: 3,
+    title: "Creed III",
+    poster: "https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&w=400&q=80", // Ảnh Creed giả lập
+    revenue: "200 MILLION USD",
+    isCenter: false
+  }
+];

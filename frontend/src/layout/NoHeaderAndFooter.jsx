@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-const AuthLayout = () => {
+const NoHeaderAndFooter = () => {
     return <Outlet />;
 };
 
-export default AuthLayout;
+export default NoHeaderAndFooter;
