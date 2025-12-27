@@ -2,7 +2,10 @@ import { Link, Outlet } from "react-router-dom";
 
 export default function AdminLayout() {
   return (
-    <div>
+    <div style={{margin: '20px'}}>
+      <div align="center">
+        <Link to="/"><img src="/images/logo.png"/></Link>
+      </div>
       <h1>Admin Panel</h1>
 
       <nav>
