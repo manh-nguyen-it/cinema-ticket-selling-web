@@ -28,6 +28,25 @@ import NoHeaderAndFooter from './layout/NoHeaderAndFooter.jsx'
 import News from './news/News.jsx'
 import SchedulePage from './pages/SchedulePage/SchedulePage.jsx'
 import NewsDetail from './news/NewsDetail';
+import AddFilm from './admin/film/AddFilm.jsx'
+import AddRole from './admin/role/AddRole.jsx'
+import DeleteRole from './admin/role/DeleteRole.jsx'
+import UpdateRole from './admin/role/UpdateRole.jsx'
+import IndexRole from './admin/role/IndexRole.jsx'
+import AddPromotion from './admin/promotion/AddPromotion.jsx'
+import DeletePromotion from './admin/promotion/DeletePromotion.jsx'
+import UpdatePromotion from './admin/promotion/UpdatePromotion.jsx'
+import IndexPromotion from './admin/promotion/IndexPromotion.jsx'
+import AddType from './admin/type/AddType.jsx'
+import DeleteType from './admin/type/DeleteType.jsx'
+import UpdateType from './admin/type/UpdateType.jsx'
+import IndexType from './admin/type/IndexType.jsx'
+import AdminLayout from "./admin/AdminLayout";
+import RoleTab from "./admin/RoleTab";
+import TypeTab from "./admin/TypeTab";
+import FilmTab from "./admin/FilmTab";
+import BranchTab from "./admin/BranchTab"
+import AdminRoute from "./admin/AdminRoute"
 
 const App = () => {
     return (
@@ -54,7 +73,7 @@ const App = () => {
                         {/* Trang khác */}
                         <Route path="/rap-dac-biet" element={<SpecialCinemaPage />} />
                         <Route path="/he-thong-rap" element={<CinemaSystemPage />} />
-                        <Route path="/dashboard" element={<DashboardPage />} />
+                        <Route path="/ho-so" element={<DashboardPage />} />
                         <Route path="/lich-chieu" element={<SchedulePage />} />
                         <Route path="/chi-tiet-phim" element={<MovieDetail />} />
                     </Route>
@@ -65,6 +84,12 @@ const App = () => {
                         <Route path="/news/fast-and-furious" element={<NewsDetail />} />
                         <Route path="/dang-nhap" element={<Login />} />
                         <Route path="/dang-ky" element={<Register />} />
+                    </Route>
+                    <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
+                        <Route path="roles" element={<RoleTab />} />
+                        <Route path="types" element={<TypeTab />} />
+                        <Route path="films" element={<FilmTab />} />
+                        <Route path="branchs" element={<BranchTab />} />
                     </Route>
                 </Routes>
             </div>

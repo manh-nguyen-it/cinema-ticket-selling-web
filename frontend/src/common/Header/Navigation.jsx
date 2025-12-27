@@ -95,7 +95,7 @@ function Navigation() {
             </li>
 
             <li>
-                <NavLink to="/my-ticket"
+                <NavLink to="/ho-so"
                     className={({ isActive }) => isActive ? style.active : undefined}
                 >
                     Vé của tôi
