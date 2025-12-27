@@ -1,4 +1,4 @@
-# Website bán vé xem phim
+# Website bán vé xem phim - Đồ án môn IE104 (Internet và Công nghệ Web)
 
 ## Giới thiệu
 Đây là dự án **Website bán vé xem phim** được xây dựng theo mô hình frontend – backend tách biệt, phục vụ mục đích học tập và nghiên cứu.
